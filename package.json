@@ -1,0 +1,13 @@
+{
+  "name": "it-classes",
+  "private": true,
+  "description": "Slidev-based IT lesson slide decks",
+  "scripts": {
+    "dev": "slidev",
+    "build": "bash scripts/build-all.sh it-classes"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^51",
+    "@slidev/theme-seriph": "^0"
+  }
+}
