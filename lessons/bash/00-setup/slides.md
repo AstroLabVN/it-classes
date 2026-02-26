@@ -86,10 +86,5 @@ layout: center
 # Checklist
 
 In order to start the **Bash** classes, make sure:
-
-<v-clicks>
-
 - **Visual Studio Code** is installed and running
-- A virtual machine is intalled on **VirtualBox** running the **Ubuntu** distribution
-
-</v-clicks>
+- A virtual machine is installed on **VirtualBox** running the **Ubuntu** distribution
