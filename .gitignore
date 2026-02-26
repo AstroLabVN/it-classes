@@ -10,6 +10,8 @@ bun.lock
 # Symlinks created by dev/build scripts
 lessons/**/components
 lessons/**/public
+lessons/**/snippets
+lessons/**/styles
 lessons/**/global-bottom.vue
 
 # OS
