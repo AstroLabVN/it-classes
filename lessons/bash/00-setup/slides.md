@@ -80,11 +80,40 @@ Download from <a href="https://code.visualstudio.com/download" style="color:#60a
 
 
 ---
-layout: center
----
-
-# Checklist
+ 
+# 4. Checklist
 
 In order to start the **Bash** classes, make sure:
 - **Visual Studio Code** is installed and running
 - A virtual machine is installed on **VirtualBox** running the **Ubuntu** distribution
+
+
+---
+
+# 5. What is a Virtual Machine ?
+
+<div style="display:flex;justify-content:center;">
+<iframe
+  src="https://www.youtube.com/embed/UBVVq-xz5i0"
+  title="What is a Virtual Machine?"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  style="width:80%;aspect-ratio:16/9;border:none;border-radius:8px;"
+/>
+</div>
+
+
+---
+
+# 6. What is Linux ?
+
+<div style="display:flex;justify-content:center;">
+<iframe
+  src="https://www.youtube.com/embed/pJ607nDnyE0"
+  title="What is Linux?"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  style="width:80%;aspect-ratio:16/9;border:none;border-radius:8px;"
+/>
+</div>
+
