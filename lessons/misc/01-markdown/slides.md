@@ -9,29 +9,27 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+fonts:
+  mono: Hack
+colorSchema: auto
 ---
 
-# Learn Markdown
-
-Write formatted documents with plain text
-
-<div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">AstroLab IT Classes</span>
-</div>
+# Markdown
 
 ---
 
 # What is Markdown?
 
-<v-clicks>
+<v-click>
 
-- A **lightweight markup language** created by John Gruber in 2004
+- Created in 2004 by John Gruber
+- A **lightweight markup language** (a system of annotating a document to describe its structure and presentation)
 - Write formatted text using **plain text syntax**
 - Easy to read even **without rendering**
 - Used everywhere: GitHub, documentation, blogs, notes, chat apps...
 - File extension: `.md` or `.markdown`
 
-</v-clicks>
+</v-click>
 
 ---
 
@@ -47,7 +45,7 @@ This is the second paragraph.
 
 <v-click>
 
-**Result:**
+Result:
 
 This is the first paragraph.
 
@@ -55,13 +53,15 @@ This is the second paragraph.
 
 </v-click>
 
+
 ---
 
 # Headings
 
+
 Use `#` symbols to create headings (1 to 6 levels).
 
-````md
+````text
 # Heading 1
 ## Heading 2
 ### Heading 3
@@ -72,8 +72,16 @@ Use `#` symbols to create headings (1 to 6 levels).
 
 <v-click>
 
-> The number of `#` determines the heading level.
-> `# Title` is the biggest, `###### Title` is the smallest.
+Result:
+```md
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+```
+
 
 </v-click>
 
@@ -91,22 +99,15 @@ Heading 2
 ---------
 ````
 
-<v-click>
-
 This produces the same result as `#` and `##`.
 
-> Prefer the `#` syntax — it's more common and easier to read.
-
-</v-click>
+<Callout type="warning" mt="4rem">
+Prefer the `#` syntax — it's more common and easier to read.
+</Callout>
 
 ---
 
 # Text Formatting — Emphasis
-
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-### Syntax
 
 ````md
 *italic* or _italic_
@@ -118,12 +119,9 @@ This produces the same result as `#` and `##`.
 ~~strikethrough~~
 ````
 
-</div>
-<div>
-
 <v-click>
 
-### Result
+Result:
 
 *italic* or _italic_
 
@@ -133,9 +131,11 @@ This produces the same result as `#` and `##`.
 
 ~~strikethrough~~
 
+<Callout type="info">
+Pick one style and stay consistent. Prefer the more common <code>*</code> for italic and <code>**</code> for bold.
+</Callout>
+
 </v-click>
-</div>
-</div>
 
 ---
 
@@ -153,7 +153,7 @@ Use `-`, `*`, or `+` to create bullet points. Indent for nested lists.
 
 <v-click>
 
-**Result:**
+Result:
 
 - First item
 - Second item
@@ -161,13 +161,17 @@ Use `-`, `*`, or `+` to create bullet points. Indent for nested lists.
   - Another nested item
 - Third item
 
+<Callout type="info">
+In team docs, choose one bullet marker and stick to it (many teams use <code>-</code>).
+</Callout>
+
 </v-click>
 
 ---
 
 # Ordered Lists
 
-Use numbers followed by a period. The actual numbers don't matter — Markdown renumbers automatically.
+Use numbers followed by a period.
 
 ````md
 1. First item
@@ -179,7 +183,7 @@ Use numbers followed by a period. The actual numbers don't matter — Markdown r
 
 <v-click>
 
-**Result:**
+Result:
 
 1. First item
 2. Second item
@@ -187,29 +191,9 @@ Use numbers followed by a period. The actual numbers don't matter — Markdown r
    1. Sub-item A
    2. Sub-item B
 
-</v-click>
-
----
-
-# Task Lists
-
-A GitHub Flavored Markdown extension. Great for checklists.
-
-````md
-- [x] Write the introduction
-- [x] Add code examples
-- [ ] Proofread the document
-- [ ] Submit for review
-````
-
-<v-click>
-
-**Result:**
-
-- [x] Write the introduction
-- [x] Add code examples
-- [ ] Proofread the document
-- [ ] Submit for review
+<Callout type="info">
+Many renderers renumber automatically, but writing 1, 2, 3 is clearer for humans.
+</Callout>
 
 </v-click>
 
@@ -217,46 +201,28 @@ A GitHub Flavored Markdown extension. Great for checklists.
 
 # Links
 
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-### Inline links
+Put the name you want to display between `[]` and put the URL between `()`
 
 ````md
-[Click here](https://example.com)
+# Web URL
+[AstroLab Markdown Class Link](https://astrolabvn.github.io/it-classes/misc/01-markdown/1)
 
-[With title](https://example.com "My title")
+# Relative Path
+[AstroLab Markdown Class Link](./it-classes/misc/01-markdown/)
 ````
-
-</div>
-<div>
 
 <v-click>
 
-### Reference links
+Result:
 
-````md
-Read [the docs][1] or [this guide][docs].
+<a href="https://astrolabvn.github.io/it-classes/misc/01-markdown/1" style="color:#60a5fa;text-decoration:none;">AstroLab Markdown Class Link</a> (web URL)
 
-[1]: https://example.com
-[docs]: https://example.com/guide
-````
+<a href="./it-classes/misc/01-markdown/" style="color:#60a5fa;text-decoration:none;">AstroLab Markdown Class Link</a> (relative path)
 
-> Useful when you reuse the same URL multiple times.
 
-</v-click>
-</div>
-</div>
-
-<v-click>
-
-### Auto-links
-
-````md
-https://example.com
-````
-
-> Raw URLs are automatically converted to clickable links (on GitHub, etc.)
+<Callout type="info" mt="2rem">
+You can use an URL or a relative path.
+</Callout>
 
 </v-click>
 
@@ -267,26 +233,21 @@ https://example.com
 Same syntax as links, but with a `!` prefix.
 
 ````md
-![Alt text](https://via.placeholder.com/300x150)
+# Web URL
+![Alt text](https://myimage.png "Optional title")
 
-![Logo](./images/logo.png "Optional title")
+# Relative Path
+![Logo](./src/astrolab-logo-transparent-white.png "Optional title")
 ````
 
-<v-click>
+Result:
 
-> **Alt text** describes the image for accessibility and is shown if the image fails to load.
+<img src="/logo.png" alt="Logo" title="Optional title" class="h-20" />
 
-</v-click>
 
-<v-click>
-
-### Image with link
-
-````md
-[![Alt text](image.png)](https://example.com)
-````
-
-</v-click>
+<Callout type="info" mt="2rem">
+`Alt text` describes the image for accessibility and is shown if the image fails to load.
+</Callout>
 
 ---
 
@@ -304,7 +265,7 @@ Use `>` at the start of a line. Nest them with `>>`.
 
 <v-click>
 
-**Result:**
+Result:
 
 > This is a blockquote.
 >
@@ -330,7 +291,12 @@ ___
 
 <v-click>
 
-> All three produce the same horizontal line separator.
+
+Result:
+
+<br>
+
+***
 
 </v-click>
 
@@ -338,7 +304,7 @@ ___
 
 # Inline Code
 
-Wrap text in backticks to format it as code.
+Wrap text in backticks ( `` ) to format it as code.
 
 ````md
 Use the `print()` function to display output.
@@ -352,7 +318,7 @@ The `<div>` tag is a block element.
 
 Use the `print()` function to display output.
 
-The `<div>` tag is a block element.
+Markdown is a `markup language`.
 
 </v-click>
 
@@ -362,18 +328,16 @@ The `<div>` tag is a block element.
 
 Use triple backticks with an optional language for syntax highlighting.
 
-````md
-```python
+<pre style="background:#121212;padding:16px;border-radius:6px;font-size:0.9em;"><code>&#96;&#96;&#96;python
 def greet(name):
     return f"Hello, {name}!"
 
 print(greet("World"))
-```
-````
+&#96;&#96;&#96;</code></pre>
 
 <v-click>
 
-**Result:**
+Result:
 
 ```python
 def greet(name):
@@ -382,50 +346,12 @@ def greet(name):
 print(greet("World"))
 ```
 
+<Callout type="info" mt="2rem">
+It works with many languages : JavaScript, Bash, HTML, etc.
+</Callout>
+
+
 </v-click>
-
----
-
-# Code Blocks — More Languages
-
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-### JavaScript
-
-```js
-const sum = (a, b) => a + b;
-console.log(sum(2, 3));
-```
-
-### Bash
-
-```bash
-echo "Hello, World!"
-ls -la /home
-```
-
-</div>
-<div>
-
-### HTML
-
-```html
-<h1>Welcome</h1>
-<p>This is a paragraph.</p>
-```
-
-### JSON
-
-```json
-{
-  "name": "Alice",
-  "age": 25
-}
-```
-
-</div>
-</div>
 
 ---
 
@@ -443,7 +369,7 @@ Use pipes `|` and dashes `-` to create tables.
 
 <v-click>
 
-**Result:**
+Result:
 
 | Name    | Age | City     |
 |---------|-----|----------|
@@ -468,20 +394,12 @@ Use colons `:` in the separator row to control alignment.
 
 <v-click>
 
-**Result:**
+Result:
 
 | Left     | Center   | Right    |
 |:---------|:--------:|---------:|
 | text     | text     | text     |
 | left     | center   | right    |
-
-</v-click>
-
-<v-click>
-
-> - `:---` = left aligned (default)
-> - `:---:` = center aligned
-> - `---:` = right aligned
 
 </v-click>
 
@@ -501,7 +419,7 @@ Use a \[bracket\] literally
 
 <v-click>
 
-**Result:**
+Result:
 
 \* This is not italic \*
 
@@ -521,7 +439,7 @@ layout: section
 
 # Where is Markdown Used?
 
-<v-clicks>
+<v-click>
 
 - **GitHub / GitLab** — README files, issues, pull requests, comments, wikis
 - **Documentation** — Static site generators (MkDocs, Docusaurus, VitePress)
@@ -531,25 +449,24 @@ layout: section
 - **Project management** — Trello, Linear, Jira
 - **This presentation!** — Built with Slidev, written entirely in Markdown
 
-</v-clicks>
+</v-click>
 
 ---
 
 # Why Learn Markdown?
 
-<v-clicks>
-
-- **Universal** — works across hundreds of tools and platforms
-- **Portable** — plain text files that will never become obsolete
-- **Fast** — format documents without leaving the keyboard
-- **Version-control friendly** — diffs are clean and meaningful
-- **Simple** — you can learn the basics in minutes
-
-</v-clicks>
-
 <v-click>
 
-> If you work in tech, you **will** use Markdown. Mastering it now saves you time forever.
+- **Fast** — format documents without leaving the keyboard
+- **Portable** — plain text files are easy to move and keep
+- **Simple** — you can learn the basics quickly
+- **Universal** — supported across many tools
+- **Version-control friendly** — clean diffs in Git
+
+<Callout type="info" mt="2rem">
+If you work in tech, you will use Markdown. Learn it once, use it everywhere.
+</Callout>
+
 
 </v-click>
 
@@ -557,63 +474,45 @@ layout: section
 layout: section
 ---
 
-# Exercises
+# Time to practise !
 
 ---
 
 # Exercise 1 — Personal Profile
 
-Create a file called `profile.md` that contains:
+Create a file named **`profile.md`** with the following content and structure:
 
-<v-clicks>
-
-- A **level 1 heading** with your name
-- A **short paragraph** introducing yourself (2-3 sentences)
-- A **level 2 heading** "Skills" with an **unordered list** of 5 skills
-- A **level 2 heading** "Education" with an **ordered list** of your degrees
-- Make at least one word **bold** and one word *italic*
-
-</v-clicks>
-
----
-
-# Exercise 2 — Project README
-
-Create a `README.md` for a fictional project:
-
-<v-clicks>
-
-- A **level 1 heading** with the project name
-- A **blockquote** with a one-line project description
-- A **level 2 heading** "Installation" with a **code block** (bash commands)
-- A **level 2 heading** "Usage" with an **inline code** example
-- A **level 2 heading** "Team" with a **table** (Name, Role, Contact)
-- A **link** to a fictional website
-- A **horizontal rule** before a footer line
-
-</v-clicks>
+* **1 H1 title** : your Full Name
+* **3 H2 headings** : Skills, Education, About me
+  * **Skills** : an unordered list with items : bash, markdown, SQL
+  * **Education** : an ordered list with the names of your Primary School, Secondary School and University (if any)
+  * **About me** : a small paragraph explaining how old you are and where you live, including Bold + Italic
+* **1 horizontal rule / divider**
+* **1 paragraph** about what you learn in this lesson with :
+  * **1 link** to https://google.com
+  * **1 inline code** with the word markdown
+* **1 blockquote** with the sentence : "Learning Markdown is so fun !"
 
 ---
 
-# Exercise 3 — Complete Document
+# Exercise 2: README
 
-Create a `cheatsheet.md` using **every element** you've learned:
+Create a file **`README.md`** with the following sections and content:
 
-<v-clicks>
+* **1 H1 title** : Project Overview
+* **1 code block** for `bash` language:
+```bash
+$ mkdir test-dir
+$ cd test-dir
+```
 
-- Headings (at least 3 levels)
-- Paragraphs with **bold**, *italic*, and ~~strikethrough~~ text
-- An unordered list and an ordered list
-- A task list with checked and unchecked items
-- An inline link and a reference-style link
-- An image (use any placeholder URL)
-- A blockquote
-- Inline code and a fenced code block with a language tag
-- A table with at least 3 columns and 3 rows
-- A horizontal rule
-- An escaped special character
+* 1 table with **3 columns**: `Name`, `Role`, `Contact`and content:
+  * Roger, CEO, roger@mail.com
+  * Linh, Developer, linh@mail.com
+  * Max, Salesman, max@mail.com
 
-</v-clicks>
+* **1 image** (get the URL of any image by right click > copy image address)
+
 
 ---
 layout: center
@@ -622,10 +521,8 @@ class: text-center
 
 # Well Done!
 
-You now know Markdown.
+You can now write Markdown confidently.
 
-Start using it — the more you write, the more natural it becomes.
+From now on, everytime you need to write for an exercise or documentation, you **will have to use Markdown**!
 
-<div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">AstroLab IT Classes</span>
-</div>
+

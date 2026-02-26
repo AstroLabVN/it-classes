@@ -7,6 +7,11 @@ dist/
 # Bun
 bun.lock
 
+# Symlinks created by dev/build scripts
+lessons/**/components
+lessons/**/public
+lessons/**/global-bottom.vue
+
 # OS
 .DS_Store
 Thumbs.db

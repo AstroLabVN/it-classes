@@ -23,6 +23,9 @@ IT-Classes/
 │   └── <topic>/
 │       └── <NN>-<slug>/slides.md
 ├── components/                 # Shared Slidev Vue components
+│   └── Callout.vue             # Info/warning/tip/danger callout blocks
+├── global-bottom.vue           # AstroLab logo on every slide
+├── public/logo.png             # Logo asset
 └── snippets/                   # Code snippets for slides
 ```
 
@@ -30,7 +33,7 @@ IT-Classes/
 
 ```bash
 # Dev a specific lesson (opens browser)
-bun run dev -- lessons/<topic>/<NN>-<slug>/slides.md --open
+bun run dev lessons/<topic>/<NN>-<slug>/slides.md -- --open
 
 # Build all lessons for deployment
 bun run build
@@ -49,6 +52,8 @@ bun install
 - Use fenced code blocks with language tags for syntax highlighting
 - Use `{monaco}` after the language tag for editable code blocks
 - Use `<v-click>` or `v-click` directive for incremental reveals
+- The AstroLab logo is automatically displayed bottom-right on all slides via `global-bottom.vue`
+- Use `<Callout>` for highlighted blocks: `<Callout type="info">`, `warning`, `danger`, `tip`, `success`
 
 ## Lesson Naming
 

@@ -12,16 +12,37 @@ DIST="$ROOT/dist"
 rm -rf "$DIST"
 mkdir -p "$DIST"
 
+# Shared resources that Slidev expects next to slides.md
+SHARED_DIRS=("components" "public" "snippets" "styles")
+SHARED_FILES=("global-bottom.vue")
+
 # Find all slides.md under lessons/
 find "$ROOT/lessons" -name 'slides.md' | sort | while read -r slide; do
   # Extract relative path: lessons/<topic>/<lesson>/slides.md
   rel="${slide#"$ROOT"/lessons/}"         # e.g. bash/01-intro/slides.md
   lesson_dir="$(dirname "$rel")"          # e.g. bash/01-intro
+  abs_lesson_dir="$(dirname "$slide")"
+
+  # Symlink shared dirs into the lesson directory
+  for dir in "${SHARED_DIRS[@]}"; do
+    [ -d "$ROOT/$dir" ] && ln -sfn "$ROOT/$dir" "$abs_lesson_dir/$dir"
+  done
+  for file in "${SHARED_FILES[@]}"; do
+    [ -f "$ROOT/$file" ] && ln -sfn "$ROOT/$file" "$abs_lesson_dir/$file"
+  done
 
   echo "==> Building $lesson_dir"
   ./node_modules/.bin/slidev build "$slide" \
     --base "/$REPO/$lesson_dir/" \
     --out "$DIST/$lesson_dir"
+
+  # Clean up symlinks
+  for dir in "${SHARED_DIRS[@]}"; do
+    [ -L "$abs_lesson_dir/$dir" ] && rm "$abs_lesson_dir/$dir"
+  done
+  for file in "${SHARED_FILES[@]}"; do
+    [ -L "$abs_lesson_dir/$file" ] && rm "$abs_lesson_dir/$file"
+  done
 done
 
 # Copy landing page
