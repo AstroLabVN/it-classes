@@ -28,9 +28,12 @@ cleanup() {
 trap cleanup EXIT
 
 for dir in "${SHARED_DIRS[@]}"; do
+  # Skip if lesson dir IS the root (avoids self-referencing symlinks)
+  [ "$LESSON_DIR" = "$ROOT" ] && continue
   [ -d "$ROOT/$dir" ] && ln -sfn "$ROOT/$dir" "$LESSON_DIR/$dir"
 done
 for file in "${SHARED_FILES[@]}"; do
+  [ "$LESSON_DIR" = "$ROOT" ] && continue
   [ -f "$ROOT/$file" ] && ln -sfn "$ROOT/$file" "$LESSON_DIR/$file"
 done
 

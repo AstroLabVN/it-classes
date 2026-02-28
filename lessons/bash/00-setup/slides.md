@@ -1,28 +1,24 @@
 ---
-theme: seriph
-title: "Initial Setup"
-info: |
-  ## Initial Setup
-  Download and install the tools we will use throughout the course.
-class: text-center
+theme: light-icons
+colorSchema: light
 drawings:
   persist: false
-transition: slide-left
-mdc: true
 fonts:
   mono: Hack
-colorSchema: auto
+layout: center
+class: text-center
 ---
 
-# Initial Setup
+<Title>Initial Setup</Title>
 
-Download and install the tools for the bash course
+<Spacer />
+Download and install the tools required for the <strong>Bash</strong> course
 
 ---
 
 # Free & Cross-Platform
 
-All the software we use in this course is:
+All the softwares we use in this course are:
 
 - **Free** — no license, no subscription, no cost
 - **Cross-platform** — works on Windows, macOS, and Linux
@@ -41,7 +37,7 @@ A **virtualization** tool — it lets you run a full operating system inside you
 
 <Callout type="info" mt="2rem">
 Download from <a href="https://www.virtualbox.org/wiki/Downloads" style="color:#60a5fa;">virtualbox.org/wiki/Downloads</a>
-<br>Choose the version matching your host OS (Windows, macOS, or Linux).
+<br>Choose the version <strong>matching your host OS</strong> (Windows, macOS, or Linux).
 </Callout>
 
 ---
@@ -52,13 +48,12 @@ The **Linux distribution** we will use in this course.
 
 - The most popular desktop Linux distribution
 - **LTS** = Long Term Support (5 years of updates)
-- Current LTS version: **Ubuntu 24.04 LTS** (Noble Numbat)
-- We will install it inside VirtualBox, not directly on your machine
+- We will install it inside **VirtualBox**, not directly on your machine
 
 
 <Callout type="info" mt="2rem">
 Download the <code>.iso</code> file from <a href="https://ubuntu.com/download/desktop" style="color:#60a5fa;">ubuntu.com/download/desktop</a>
-<br>Pick the latest LTS version. The file is about 5 GB.
+<br>Pick the <strong>latest LTS version</strong>. The file is about 5 GB.
 </Callout>
 
 ---
@@ -69,51 +64,22 @@ A **code editor** — the most popular editor for developers.
 
 - Created by Microsoft
 - Lightweight but powerful, with thousands of extensions
-- Built-in terminal, Git integration, and syntax highlighting
 - We will use it to write code, scripts, and Markdown files
 
 <Callout type="info" mt="2rem">
 Download from <a href="https://code.visualstudio.com/download" style="color:#60a5fa;">code.visualstudio.com/download</a>
-<br>Choose the installer for your OS. The "User Installer" is recommended on Windows.
+<br>Choose the installer <strong>matching your host OS</strong> (Windows, macOS, or Linux).<br>The "User Installer" is recommended on Windows.
 </Callout>
 
 
 
 ---
+layout: center
+class: text-center
+---
  
-# 4. Checklist
+<Title>Congrats!</Title>
 
-In order to start the **Bash** classes, make sure:
-- **Visual Studio Code** is installed and running
-- A virtual machine is installed on **VirtualBox** running the **Ubuntu** distribution
+<Spacer />
 
-
----
-
-# 5. What is a Virtual Machine ?
-
-<div style="display:flex;justify-content:center;">
-<iframe
-  src="https://www.youtube.com/embed/UBVVq-xz5i0"
-  title="What is a Virtual Machine?"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  style="width:80%;aspect-ratio:16/9;border:none;border-radius:8px;"
-/>
-</div>
-
-
----
-
-# 6. What is Linux ?
-
-<div style="display:flex;justify-content:center;">
-<iframe
-  src="https://www.youtube.com/embed/pJ607nDnyE0"
-  title="What is Linux?"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  style="width:80%;aspect-ratio:16/9;border:none;border-radius:8px;"
-/>
-</div>
-
+You are now ready to dive into the <strong>Bash</strong> course!

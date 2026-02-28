@@ -72,6 +72,10 @@ Follow **Angular Commit Conventions** for all commit messages:
 
 **Types:** `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
 
+**Rules:**
+- NEVER mention Claude or add Co-Authored-By lines in commits
+- If found, remove them
+
 **Examples:**
 - `feat(bash): add lesson 02 on variables`
 - `fix(deploy): switch CI from npm to bun`
