@@ -64,37 +64,32 @@ const spacingStyle = computed(() => {
 }
 
 .callout-info {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.08);
   border-color: rgb(59, 130, 246);
-  color: rgb(147, 197, 253);
+  color: rgb(59, 130, 246);
 }
-.callout-info .callout-icon { color: rgb(96, 165, 250); }
 
 .callout-warning {
-  background: rgba(234, 179, 8, 0.1);
-  border-color: rgb(234, 179, 8);
-  color: rgb(253, 224, 71);
+  background: rgba(202, 138, 4, 0.08);
+  border-color: rgb(202, 138, 4);
+  color: rgb(202, 138, 4);
 }
-.callout-warning .callout-icon { color: rgb(250, 204, 21); }
 
 .callout-danger {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgb(239, 68, 68);
-  color: rgb(252, 165, 165);
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgb(220, 38, 38);
+  color: rgb(220, 38, 38);
 }
-.callout-danger .callout-icon { color: rgb(248, 113, 113); }
 
 .callout-tip {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgb(34, 197, 94);
-  color: rgb(134, 239, 172);
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgb(22, 163, 74);
+  color: rgb(22, 163, 74);
 }
-.callout-tip .callout-icon { color: rgb(74, 222, 128); }
 
 .callout-success {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgb(34, 197, 94);
-  color: rgb(134, 239, 172);
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgb(22, 163, 74);
+  color: rgb(22, 163, 74);
 }
-.callout-success .callout-icon { color: rgb(74, 222, 128); }
 </style>

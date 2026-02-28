@@ -1,3 +1,27 @@
 .slidev-layout h1 + p {
   opacity: 1;
 }
+
+.slidev-layout h1 {
+  color: #ce8460;
+}
+
+:not(pre) > code:before,
+:not(pre) > code:after {
+  content: none;
+}
+
+ol {
+  list-style: decimal;
+  padding-left: 1em;
+}
+
+ul {
+  list-style: disc !important;
+}
+
+a {
+  text-decoration: underline !important;
+  text-decoration-style: solid !important;
+  border-bottom: none !important;
+}
