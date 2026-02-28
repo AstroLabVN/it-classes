@@ -50,4 +50,4 @@ cp "$ROOT/lessons/index.html" "$DIST/index.html"
 
 echo ""
 echo "Build complete! Output in dist/"
-ls -R "$DIST" | head -30
+ls -R "$DIST" | head -30 || true
