@@ -10,6 +10,9 @@ class: text-center
 ---
 
 <Title>Markdown</Title>
+
+<Spacer />
+
 A lightweight markup language with plain-text-formatting syntax
 
 ---
@@ -533,8 +536,8 @@ class: text-center
 # Where is Markdown Used?
 
 * **AI** — ChatGPT, Gemini, Copilot
-* **Websites** — GitHub, GitLab
-* **Documentation** — MkDocs, Docusaurus
+* **Code Repository Websites** — GitHub, GitLab
+* **Documentation** — most software documentation
 * **Chat** — Discord, Slack
 - **This presentation!** — written entirely in Markdown
 
@@ -680,8 +683,10 @@ layout: center
 class: text-center
 ---
 
-# Well Done!
+<Title>Well done!</Title>
 
-You can now write Markdown confidently.
+<Spacer />
+
+You can now write Markdown confidently!
 
 From now on, everytime you need to write in this class,<br>you **will have to use Markdown**!
