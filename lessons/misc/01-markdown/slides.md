@@ -529,7 +529,7 @@ layout: center
 class: text-center
 ---
 
-<Title>Markdown is everywhere !</Title>
+<Title>Markdown is everywhere!</Title>
 
 ---
 
@@ -560,15 +560,17 @@ layout: center
 class: text-center
 ---
 
-<Title>Time to practice !</Title>
+<Title>Time to practice!</Title>
 
 ---
 
 # Exercise 1 — Personal Profile
 
-Create a file named **`profile.md`** with the following content and structure:
+<Callout type="exercise" mt="1rem">
+Create a file named <code>profile.md</code> with the following content and structure:
+</Callout>
 
-<div style="font-size:0.9em">
+<div style="font-size:0.8em">
 
 * `Heading H1` : your name
 * `Heading H2` : Skills
@@ -581,7 +583,7 @@ Create a file named **`profile.md`** with the following content and structure:
 * `paragraph` about what you learned in this lesson with :
   * `1 link` to https://google.com
   * `1 inline code` with the word markdown
-* `blockquote` with the sentence : "Learning Markdown is so fun !"
+* `blockquote` with the sentence : "Learning Markdown is so fun!"
 
 </div>
 
@@ -611,9 +613,9 @@ I am 99 years old and I live in **Bien Hoa**, *south of Vietnam*.
 
 <hr style="margin:8px 0;border-color:#cbd5e1;">
 
-Today I learned how to use Markdown ! I can now use <a href="https://google.com" style="color:#2563eb;">a link</a>. I also can use `inline code`.
+Today I learned how to use Markdown! I can now use <a href="https://google.com" style="color:#2563eb;">a link</a>. I also can use `inline code`.
 
-> Learning Markdown is so fun !
+> Learning Markdown is so fun!
 
 </div>
 
@@ -621,9 +623,11 @@ Today I learned how to use Markdown ! I can now use <a href="https://google.com"
 
 # Exercise 2 — README
 
-Create a file **`README.md`** with the following structure:
+<Callout type="exercise" mt="1rem">
+Create a file named <code>README.md</code> with the following content and structure:
+</Callout>
 
-<div style="font-size:0.9em">
+<div style="font-size:0.8em">
 
 * `Heading H1` : Project Overview
 * `Heading H2` : Content
