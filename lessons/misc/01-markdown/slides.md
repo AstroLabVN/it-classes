@@ -566,9 +566,11 @@ class: text-center
 
 # Exercise 1 — Personal Profile
 
-Create a file named **`profile.md`** with the following content and structure:
+<Callout type="exercise" mt="1rem">
+Create a file named <code>profile.md</code> with the following content and structure:
+</Callout>
 
-<div style="font-size:0.9em">
+<div style="font-size:0.8em">
 
 * `Heading H1` : your name
 * `Heading H2` : Skills
@@ -621,9 +623,11 @@ Today I learned how to use Markdown! I can now use <a href="https://google.com" 
 
 # Exercise 2 — README
 
-Create a file **`README.md`** with the following structure:
+<Callout type="exercise" mt="1rem">
+Create a file named <code>README.md</code> with the following content and structure:
+</Callout>
 
-<div style="font-size:0.9em">
+<div style="font-size:0.8em">
 
 * `Heading H1` : Project Overview
 * `Heading H2` : Content

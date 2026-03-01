@@ -25,3 +25,9 @@ a {
   text-decoration-style: solid !important;
   border-bottom: none !important;
 }
+
+.table {
+  font-size: var(--table-size, 0.7em);
+  max-width: var(--table-width, 40%);
+  line-height: var(--table-lh, 2px);
+}

@@ -1,3 +1,20 @@
+shortcuts
+
++ shortcuts man 
+
+EXO with argfument espace ??
+
+L'espace « » est le séparateur des champs de la ligne de commande
+Lorsqu'un argument contient un espace, celui-ci doit être protégé
+par des quottes simples ou doubles.
+
+
+exercises ideas 
+- propose several errors and ask them to fix it and explain what was wrong
+
+
+size of image for logo ???
+
 # 5. What is a Virtual Machine ?
 
 <div style="display:flex;justify-content:center;">
