@@ -30,10 +30,10 @@ A lightweight markup language with plain-text-formatting syntax
 
 Simply write text. Separate paragraphs with a **blank line**.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 This is the first paragraph.
@@ -44,7 +44,7 @@ This is the second paragraph.
 </div>
 
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 This is the first paragraph.
 
@@ -52,7 +52,7 @@ This is the second paragraph.
 
 </div>
 
-</div>
+</Cols>
 
 ---
 
@@ -60,10 +60,10 @@ This is the second paragraph.
 
 Use `#` symbols to create headings (1 to 6 levels).
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````text
 # Heading 1
@@ -77,7 +77,7 @@ Use `#` symbols to create headings (1 to 6 levels).
 </div>
 
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="color:#333;">
   <p style="font-size:1.8em;font-weight:bold;">Heading 1</p>
@@ -89,7 +89,7 @@ Use `#` symbols to create headings (1 to 6 levels).
 </div>
 </div>
 
-</div>
+</Cols>
 
 ---
 
@@ -97,10 +97,10 @@ Use `#` symbols to create headings (1 to 6 levels).
 
 Use `*` for bold and italic and `~` for strikethrough.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 *italic*
@@ -115,7 +115,7 @@ Use `*` for bold and italic and `~` for strikethrough.
 </div>
 
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.8em">
 *italic*
@@ -129,7 +129,7 @@ Use `*` for bold and italic and `~` for strikethrough.
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="info" mt="3rem">
 Other syntax exists but this is the most common. Prefer using this one.
@@ -141,10 +141,10 @@ Other syntax exists but this is the most common. Prefer using this one.
 
 Use `-` to create bullet points. Indent for nested lists.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 - First item
@@ -157,7 +157,7 @@ Use `-` to create bullet points. Indent for nested lists.
 </div>
 
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em;">
 
@@ -171,7 +171,7 @@ Use `-` to create bullet points. Indent for nested lists.
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="info" mt="3rem">
 Other syntax exists but this is the most common. Prefer using this one.
@@ -183,9 +183,9 @@ Other syntax exists but this is the most common. Prefer using this one.
 
 Use numbers followed by a period.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 1. First item
@@ -197,7 +197,7 @@ Use numbers followed by a period.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em;">
 
@@ -211,7 +211,7 @@ Use numbers followed by a period.
 
 
 </div>
-</div>
+</Cols>
 
 <Callout type="info" mt="3rem">
 Many renderers renumber automatically, but writing 1, 2, 3 is clearer for humans.
@@ -225,7 +225,7 @@ Put the name you want to display between `[]` and put the URL between `()`
 
 <div style="display:grid;grid-template-columns:70% 30%;gap:2rem;">
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 # Web URL
@@ -237,7 +237,7 @@ Put the name you want to display between `[]` and put the URL between `()`
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.8em;">
 <a href="https://astrolabvn.github.io/it-classes/misc/01-markdown/" style="color:#2563eb;text-decoration:none;">Markdown Course</a> (web URL)
@@ -261,7 +261,7 @@ Same syntax as links, but with a `!` prefix.
 
 <div style="display:grid;grid-template-columns:80% 20%;gap:2rem;">
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 # Web URL
@@ -273,7 +273,7 @@ Same syntax as links, but with a `!` prefix.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <img src="/logo.png" alt="Logo" title="Optional title" class="h-20" />
 
@@ -293,9 +293,9 @@ You can use an <strong>URL</Strong> or a <strong>relative path</Strong>.
 
 Use `>` at the start of a line.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 > This is a blockquote.
@@ -306,12 +306,12 @@ Use `>` at the start of a line.
 ````md
 > This is a blockquote on
 >
-> two lines 
+> two lines
 ````
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 > This is a blockquote.
 
@@ -322,7 +322,7 @@ Use `>` at the start of a line.
 > two lines
 
 </div>
-</div>
+</Cols>
 
 ---
 
@@ -330,9 +330,9 @@ Use `>` at the start of a line.
 
 Create a visual separator with three or more `-`.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 ---
@@ -340,14 +340,14 @@ Create a visual separator with three or more `-`.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="padding-top: 1rem">
 <hr style="border-color:#94a3b8;">
 </div>
 
 </div>
-</div>
+</Cols>
 
 ---
 
@@ -355,9 +355,9 @@ Create a visual separator with three or more `-`.
 
 Wrap text in backticks <code>`</code> to format it as code.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 Use the `print()` function
@@ -369,7 +369,7 @@ block element.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size: 0.9rem">
 
@@ -380,7 +380,7 @@ Markdown is a `markup language`.
 </div>
 
 </div>
-</div>
+</Cols>
 
 ---
 
@@ -388,9 +388,9 @@ Markdown is a `markup language`.
 
 Use triple backticks with an optional language for syntax highlighting.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 <pre style="background:#f1f5f9;padding:16px;border-radius:6px;font-size:0.7em;"><code>&#96;&#96;&#96;python
 def greet(name):
@@ -401,7 +401,7 @@ print(greet("World"))
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em;">
 
@@ -414,7 +414,7 @@ print(greet("World"))
 
 </div>
 </div>
-</div>
+</Cols>
 
 <Callout type="info" mt="2rem">
 It works with <strong>many languages</strong>: JavaScript, Bash, HTML, etc.
@@ -426,9 +426,9 @@ It works with <strong>many languages</strong>: JavaScript, Bash, HTML, etc.
 
 Use pipes `|` and dashes `-` to create tables.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 | Name    | Age | City     |
@@ -440,7 +440,7 @@ Use pipes `|` and dashes `-` to create tables.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em; max-width:70%; line-height: 2px">
 
@@ -453,7 +453,7 @@ Use pipes `|` and dashes `-` to create tables.
 </div>
 
 </div>
-</div>
+</Cols>
 
 ---
 
@@ -461,9 +461,9 @@ Use pipes `|` and dashes `-` to create tables.
 
 Use colons `:` in the separator row to control alignment.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 | Left    | Center | Right    |
@@ -475,7 +475,7 @@ Use colons `:` in the separator row to control alignment.
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em; max-width:70%; line-height: 2px">
 
@@ -487,7 +487,7 @@ Use colons `:` in the separator row to control alignment.
 
 </div>
 </div>
-</div>
+</Cols>
 
 ---
 
@@ -495,9 +495,9 @@ Use colons `:` in the separator row to control alignment.
 
 Use a backslash `\` to display special characters literally.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ````md
 \* This is not italic \*
@@ -509,7 +509,7 @@ Use a \[bracket\] literally
 
 </div>
 <div>
-<Label>Result</Label>
+<Subtitle>Result</Subtitle>
 
 <div style="font-size:0.7em;">
 
@@ -522,7 +522,7 @@ Use a \[bracket\] literally
 </div>
 
 </div>
-</div>
+</Cols>
 
 ---
 layout: center

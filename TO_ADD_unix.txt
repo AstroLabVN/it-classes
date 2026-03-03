@@ -1,0 +1,139 @@
+---
+# Unix, GNU, Linux
+What each one is (Slidev recap)
+---
+
+# Big picture map
+- Unix: operating system family + design tradition
+- GNU: free software operating system project (many tools)
+- Linux: kernel (core OS program)
+- GNU/Linux: common combo (GNU userland + Linux kernel)
+Notes:
+- Unix overview: Britannica. https://www.britannica.com/technology/UNIX
+- GNU overview/history: GNU.org. https://www.gnu.org/gnu/gnu-history.en.html
+- Linux overview: kernel.org. https://www.kernel.org/linux.html
+
+---
+
+# What is an operating system
+Operating system: manages computer resources + provides services
+- Device control
+- File systems
+- Memory management
+- Process scheduling
+Notes:
+- Britannica, operating system definition and role. https://www.britannica.com/technology/operating-system
+
+---
+
+# What is the kernel
+Kernel: core part of an operating system
+- Bridge: apps ↔ hardware
+- Control: CPU, devices, memory
+- Provide: system calls (basic OS services)
+Notes:
+- IBM, Linux kernel as interface and core. https://www.ibm.com/think/topics/linux-kernel
+- Britannica, OS manages resources concept. https://www.britannica.com/technology/operating-system
+
+---
+
+# Kernel vs userland
+- Kernel space: drivers, memory, scheduling
+- User space: shells, compilers, editors, utilities
+- Typical flow: app → system call → kernel → hardware
+Notes:
+- IBM, kernel responsibilities and relationship to system. https://www.ibm.com/think/topics/linux-kernel
+
+---
+
+# What is Unix
+Unix: operating system created at AT&T Bell Labs, later a family of systems
+- Late 1960s: Bell Labs development context
+- 1969: first UNIX version
+- People: Dennis Ritchie, Ken Thompson
+- Legacy: major influence on Unix-like systems
+Notes:
+- Britannica UNIX history, origin, and influence. https://www.britannica.com/technology/UNIX
+
+---
+
+# Why Unix was created
+- Time-sharing era needs
+- Multi-user computing goals
+- Research lab operating system work
+Notes:
+- Britannica describes the Bell Labs time-sharing context and early development. https://www.britannica.com/technology/UNIX
+
+---
+
+# What is GNU
+GNU: free operating system project, Unix-compatible
+- 1983-09-27: GNU announced (Richard Stallman)
+- Goal: complete OS made of free software
+- Name: GNU’s Not Unix
+Notes:
+- GNU initial announcement (date, goals, Unix compatibility). https://www.gnu.org/gnu/initial-announcement.en.html
+- GNU history overview. https://www.gnu.org/gnu/gnu-history.en.html
+
+---
+
+# Why GNU was invented
+- Reaction to increasing proprietary software
+- Emphasis: user freedom to share + modify
+- Plan: replace nonfree parts of a Unix-like system
+Notes:
+- GNU Manifesto (motivation and purpose). https://www.gnu.org/gnu/manifesto.en.html
+- GNU system history overview. https://www.gnu.org/gnu/gnu-history.en.html
+
+---
+
+# What GNU produced
+GNU project output: major userland components
+- Compilers, editors, libraries, utilities (GNU system components)
+- Licensing: GNU GPL to protect freedoms
+Notes:
+- GNU system overview/history. https://www.gnu.org/gnu/gnu-history.en.html
+- GPLv2 text (June 1991). https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+
+---
+
+# What is Linux
+Linux: Unix-like kernel
+- 1991: started by Linus Torvalds
+- Kernel used by many operating system distributions
+Notes:
+- kernel.org overview of Linux as a Unix-like OS/kernel lineage framing. https://www.kernel.org/linux.html
+
+---
+
+# Why Linux mattered (in practice)
+- GNU had many OS parts, missing a widely deployed kernel
+- Linux kernel + GNU tools: complete working system for many users
+Notes:
+- GNU history page discusses GNU system context and components. https://www.gnu.org/gnu/gnu-history.en.html
+
+---
+
+# Timeline anchors
+- 1969: UNIX first version (Bell Labs)
+- 1983-09-27: GNU announced
+- 1985: GNU Manifesto written
+- 1991: Linux kernel project begins
+Notes:
+- UNIX date: Britannica. https://www.britannica.com/technology/UNIX
+- GNU announcement: GNU.org. https://www.gnu.org/gnu/initial-announcement.en.html
+- GNU Manifesto: GNU.org. https://www.gnu.org/gnu/manifesto.en.html
+- Linux overview: kernel.org. https://www.kernel.org/linux.html
+
+---
+
+# Sources
+- Britannica: Operating system https://www.britannica.com/technology/operating-system
+- Britannica: UNIX https://www.britannica.com/technology/UNIX
+- GNU.org: GNU history https://www.gnu.org/gnu/gnu-history.en.html
+- GNU.org: Initial announcement https://www.gnu.org/gnu/initial-announcement.en.html
+- GNU.org: Manifesto https://www.gnu.org/gnu/manifesto.en.html
+- GNU.org: GPLv2 https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+- IBM: Linux kernel https://www.ibm.com/think/topics/linux-kernel
+- kernel.org: What is Linux https://www.kernel.org/linux.html
+---
