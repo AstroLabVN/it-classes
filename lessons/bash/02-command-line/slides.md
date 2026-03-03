@@ -9,7 +9,7 @@ layout: center
 class: text-center
 ---
 
-<Title>Command Line</Title>
+<Title>Command Line (CLI)</Title>
 
 <Spacer />
 
@@ -27,21 +27,54 @@ When used <span style="text-decoration: underline">interactively</span>:
 
 <Spacer />
 
-<Label>Several shells exist:</Label>
+<Subtitle>Several shells exist:</Subtitle>
 
-<div style="font-size:0.7em; max-width:40%; line-height: 2px">
+<div style="font-size:0.9em; max-width:60%; line-height: 2px">
 
-| Shell | Description |
-|-------|-------------|
-| **Bash** | Most common on Linux (default on Ubuntu) |
-| **Zsh** | Default on macOS since 2019 |
-| **PowerShell** | Default on Windows |
+| Shell          | Description                              |
+|----------------|------------------------------------------|
+| **Bash**       | Most common on Linux (default on Ubuntu) |
+| **Zsh**        | Default on macOS since 2019              |
+| **PowerShell** | Default on Windows                       |
 
 </div>
 
-  <Callout type="info">
+<Callout type="info">
 In this course, we use <strong>Bash</strong> — it's the most widely used shell on servers and Linux systems.
 </Callout>
+
+---
+
+# How the Shell and Kernel Work Together
+
+<div class="grid gap-4" style="grid-template-columns: 3fr 1.6fr;">
+
+<div style="font-size: 0.95em">
+
+When you type a command:
+
+1. You **type a command** in the shell
+2. The shell **understands** it (parse: command + options + arguments)
+3. The shell **runs a program** (or a built-in command)
+4. The program **asks the kernel** for help (via **system calls**)
+5. The kernel **talks to hardware / files** and **returns results**
+6. The program **prints output**, then the shell shows the **prompt** again
+
+</div>
+
+<div>
+<img :src="'/bash/shell_kernel.png'" style="max-height: 280px; margin-top: 50px" />
+</div>
+
+</div>
+
+<Callout type="info">Example: when you type <code>ls</code>:
+<br>- The shell runs the <code>ls</code> program
+<br>- <code>ls</code> asks the kernel to read the folder (system calls)
+<br>- The kernel reads the filesystem (from disk/SSD) and returns the list
+<br>- <code>ls</code> prints the list to the terminal, and the shell waits for the next command
+</Callout>
+
 
 ---
 
@@ -49,10 +82,10 @@ In this course, we use <strong>Bash</strong> — it's the most widely used shell
 
 Two different things that work together:
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Terminal</Label>
+<Subtitle>Terminal</Subtitle>
 
 - The **window** you type in
 - Just a graphical container
@@ -64,7 +97,7 @@ Two different things that work together:
 </div>
 
 <div>
-<Label>Shell</Label>
+<Subtitle>Shell</Subtitle>
 
 - The **program** running inside the terminal
 - Interprets and executes your commands
@@ -75,7 +108,7 @@ Two different things that work together:
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="tip">
 Think of it like this: the <strong>terminal</strong> is the TV screen, the <strong>shell</strong> is the show running on it.
@@ -93,18 +126,18 @@ student@laptop:~$
 
 <Spacer />
 
-<Label>What is in the shell prompt</Label>
+<Subtitle>What is in the shell prompt</Subtitle>
 
-<div style="font-size:0.7em; max-width:40%; line-height: 2px">
+<div style="font-size:0.9em; max-width:55%; line-height: 2px">
 
-| Part | Meaning |
-|------|---------|
-| `student` | Your **username** |
-| `@` | Separator |
-| `laptop` | Your **computer's name** (hostname) |
-| `:` | Separator |
-| `~` | Your **current directory** (`~` = home) |
-| `$` | Ready for input |
+| Part      | Meaning                                 |
+|-----------|-----------------------------------------|
+| `student` | Your **username**                       |
+| `@`       | Separator                               |
+| `laptop`  | Your **computer's name** (hostname)     |
+| `:`       | Separator                               |
+| `~`       | Your **current directory** (`~` = home) |
+| `$`       | Ready for input                         |
 
 </div>
 
@@ -114,16 +147,16 @@ Everything after the shell prompt is where you type your command.
 
 ---
 
-# Exercise 1 : your first commands
+# Exercise 1 - My first commands
 
 <Callout type="exercise" mt="1rem">
-Type each of these commands in your terminal. Can you guess what they do?<br>Write your answers in a file called <code>02-command_line.md</code>.
+Type each of these commands in your terminal. Can you guess what they do?
 </Callout>
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Command</Label>
+<Subtitle>Command</Subtitle>
 
 ```bash
 whoami
@@ -139,16 +172,16 @@ clear
 
 <div>
 
-<Label>Expected Output</Label>
+<Subtitle>Expected Output</Subtitle>
 
-- `whoami`: explanation of the command
-- `hostname`: explanation of the command
-- `date`: explanation of the command
-- `clear`: explanation of the command
-
-</div>
+- `whoami` — explanation of the command
+- `hostname` — explanation of the command
+- `date` — explanation of the command
+- `clear` — explanation of the command
 
 </div>
+
+</Cols>
 
 
 ---
@@ -163,10 +196,10 @@ command [options] [arguments]
 
 The **first word** is the command. Everything after is options and arguments, **separated by spaces**.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 <div>
 
-<Label>Example</Label>
+<Subtitle>Example</Subtitle>
 
 ```bash
 ls -l /home
@@ -176,21 +209,21 @@ ls -l /home
 
 <div>
 
-<Label>Breakdown</Label>
+<Subtitle>Breakdown</Subtitle>
 
 <div style="font-size:0.8em; max-width:80%; line-height: 2px">
 
-| Part | Role |
-|------|------|
-| `ls` | **Command** — what to do |
-| `-l` | **Option** — how to do it |
+| Part    | Role                            |
+|---------|---------------------------------|
+| `ls`    | **Command** — what to do        |
+| `-l`    | **Option** — how to do it       |
 | `/home` | **Argument** — what to do it on |
 
 </div>
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="warning">
 Spaces are <strong>required</strong> between each part. <code>ls-l/home</code> does not work — Bash sees it as one unknown command.<br>
@@ -209,10 +242,10 @@ Type each of these commands with their arguments in your terminal. Can you guess
 </Callout>
 
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Syntax</Label>
+<Subtitle>Syntax</Subtitle>
 
 ```bash
 echo Hello
@@ -227,7 +260,7 @@ cp file1.txt file2.txt
 </div>
 
 <div>
-<Label>Expected output</Label>
+<Subtitle>Expected output</Subtitle>
 
 - `echo Hello` — explanation
 - `mkdir mydir` — explanation
@@ -236,7 +269,7 @@ cp file1.txt file2.txt
 
 </div>
 
-</div>
+</Cols>
 
 <Spacer />
 
@@ -254,17 +287,17 @@ Options **modify** the behavior of a command. They come in two forms: `short` or
 Run both commands in each pair and compare the output. Do they produce the same or different output?
 </Callout>
 
-<div class="grid grid-cols-3 gap-4">
+<Cols cols="3">
 
 <div>
-<Label>Pair 1 — uname</Label>
+<Subtitle>Pair 1 — uname</Subtitle>
 
 ```bash
 uname
 uname -a
 ```
 
-<Label>Pair 4 — ls</Label>
+<Subtitle>Pair 4 — ls</Subtitle>
 
 ```bash
 ls -l
@@ -274,14 +307,14 @@ ls --format=long
 </div>
 
 <div>
-<Label>Pair 2 — whoami</Label>
+<Subtitle>Pair 2 — whoami</Subtitle>
 
 ```bash
 whoami
 whoami --help
 ```
 
-<Label>Pair 5 — ls</Label>
+<Subtitle>Pair 5 — ls</Subtitle>
 
 ```bash
 ls -l -a
@@ -291,14 +324,14 @@ ls -la
 </div>
 
 <div>
-<Label>Pair 3 — head</Label>
+<Subtitle>Pair 3 — head</Subtitle>
 
 ```bash
 head /etc/passwd
 head -3 /etc/passwd
 ```
 
-<Label>Pair 6 — echo</Label>
+<Subtitle>Pair 6 — echo</Subtitle>
 
 ```bash
 echo Hello World
@@ -307,11 +340,9 @@ echo -n Hello World
 
 </div>
 
+</Cols>
 
-
-</div>
-
-<Callout type="info" mt="1rem">
+<Callout type="info" mt="2rem">
 Short options (<code>-l</code>) and long options (<code>--format=long</code>) often do the <strong>same thing</strong>.<br>Short options can be <strong>combined</strong>: <code>-la</code> = <code>-l -a</code>.
 </Callout>
 
@@ -326,43 +357,43 @@ Learn these shortcuts — they will save you a lot of time!
 Try each shortcut in your terminal. Practice until they become muscle memory!
 </Callout>
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Navigation</Label>
+<Subtitle>Navigation</Subtitle>
 
-<div class="table" style="max-width:90%">
+<div style="font-size: 0.9rem; line-height: 2px; max-width: 90%">
 
-| Key | Action |
-|-----|--------|
-| `Up Arrow` | Recall previous command |
-| `Down Arrow` | Recall next command |
-| `Tab` | Auto-complete file/command name |
-| `Tab Tab` | Show all possible completions |
+| Key          | Action                          |
+|--------------|---------------------------------|
+| `Up Arrow`   | Recall previous command         |
+| `Down Arrow` | Recall next command             |
+| `Tab`        | Auto-complete file/command name |
+| `Tab Tab`    | Show all possible completions   |
 
 </div>
 
 </div>
 
 <div>
-<Label>Editing & Control</Label>
+<Subtitle>Editing & Control</Subtitle>
 
-<div class="table" style="max-width:90%">
+<div style="font-size: 0.9rem; line-height: 2px; max-width: 85%">
 
-| Key | Action |
-|-----|--------|
-| `Ctrl + l` | Clear the screen |
+| Key        | Action                              |
+|------------|-------------------------------------|
+| `Ctrl + l` | Clear the screen                    |
 | `Ctrl + u` | Delete from cursor to start of line |
-| `Ctrl + k` | Delete from cursor to end of line |
-| `Ctrl + a` | Move cursor to start of line |
-| `Ctrl + e` | Move cursor to end of line |
-| `Ctrl + c` | Cancel / kill current command |
+| `Ctrl + k` | Delete from cursor to end of line   |
+| `Ctrl + a` | Move cursor to start of line        |
+| `Ctrl + e` | Move cursor to end of line          |
+| `Ctrl + c` | Cancel / kill current command       |
 
 </div>
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="tip">
 <strong>Tab completion</strong> is your best friend — start typing a file or directory name and press <code>Tab</code> to auto-complete it!
@@ -380,28 +411,41 @@ Each command below contains an <strong>error</strong>. For each one:
 3. **Write** the corrected command
 </Callout>
 
+<Subtitle>Broken commands</Subtitle>
 
-<Label>Broken commands</Label>
+
+<Cols>
+
+<div>
+<Subtitle>1</Subtitle>
 
 ```bash
-# 1
 LS -l
 ```
 
-```bash
-# 2
-cd--help
-```
+<Subtitle>2</Subtitle>
 
 ```bash
-# 3
+cd--help
+```
+</div>
+
+<div>
+
+<Subtitle>3</Subtitle>
+
+```bash
 mkdir
 ```
 
+<Subtitle>4</Subtitle>
+
 ```bash
-# 4
 echo "Hello World
 ```
+</div>
+
+</Cols>
 
 ---
 
@@ -415,12 +459,12 @@ man ls
 
 This opens the **manual page** for `ls` — a built-in documentation viewer.
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Navigation</Label>
+<Subtitle>Navigation</Subtitle>
 
-<div style="font-size:0.7em; max-width:100%; line-height: 2px">
+<div style="font-size: 0.9rem; line-height: 2px; max-width: 90%">
 
 | Key           | Action                             |
 |---------------|------------------------------------|
@@ -437,9 +481,9 @@ This opens the **manual page** for `ls` — a built-in documentation viewer.
 </div>
 
 <div>
-<Label>Man page sections</Label>
+<Subtitle>Man page sections</Subtitle>
 
-<div style="font-size:0.7em; max-width:100%; line-height: 2px;">
+<div style="font-size: 0.9rem; line-height: 2px; max-width: 90%">
 
 | Section       | Content                  |
 |---------------|--------------------------|
@@ -453,7 +497,7 @@ This opens the **manual page** for `ls` — a built-in documentation viewer.
 
 </div>
 
-</div>
+</Cols>
 
 ---
 
@@ -463,10 +507,10 @@ This opens the **manual page** for `ls` — a built-in documentation viewer.
 Use <code>man</code> to find what each of these commands does. Write a <strong>one-line description</strong> for each.
 </Callout>
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Commands to look up</Label>
+<Subtitle>Commands to look up</Subtitle>
 
 <div>
 
@@ -483,7 +527,7 @@ man echo
 </div>
 
 <div>
-<Label>Expected output</Label>
+<Subtitle>Expected output</Subtitle>
 
 <div style="font-size: 0.8em">
 
@@ -497,7 +541,7 @@ man echo
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="tip">
 Look at the <strong>NAME</strong> section at the top of each man page — it gives you a short summary.
@@ -511,10 +555,10 @@ Look at the <strong>NAME</strong> section at the top of each man page — it giv
 Use <code>man</code> to find what each <strong>option</strong> does. Write a one-line explanation for each.
 </Callout>
 
-<div class="grid grid-cols-2 gap-4">
+<Cols>
 
 <div>
-<Label>Find the meaning of each option</Label>
+<Subtitle>Find the meaning of each option</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -530,7 +574,7 @@ Use <code>man</code> to find what each <strong>option</strong> does. Write a one
 </div>
 
 <div>
-<Label>Expected output</Label>
+<Subtitle>Expected output</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -545,7 +589,7 @@ Use <code>man</code> to find what each <strong>option</strong> does. Write a one
 
 </div>
 
-</div>
+</Cols>
 
 <Callout type="tip">
 In the man page, go to the <strong>OPTIONS</strong> section to find what each flag does.
@@ -590,10 +634,10 @@ Not all commands support <code>--help</code>. Some only have <code>man</code> pa
 
 <Spacer />
 
-<div class="grid grid-cols-2 gap-8">
+<Cols gap="8">
 
 <div>
-<Label>Why the difference?</Label>
+<Subtitle>Why the difference?</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -606,7 +650,7 @@ Not all commands support <code>--help</code>. Some only have <code>man</code> pa
 </div>
 
 <div>
-<Label>When to use what</Label>
+<Subtitle>When to use what</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -618,7 +662,7 @@ Not all commands support <code>--help</code>. Some only have <code>man</code> pa
 
 </div>
 
-</div>
+</Cols>
 
 ---
 
@@ -626,7 +670,7 @@ Not all commands support <code>--help</code>. Some only have <code>man</code> pa
 
 Some commands are **part of the shell itself**: they change things that only the shell can change.
 
-<Label>Example of built-in command (part of Bash)</Label>
+<Subtitle>Example of built-in command (part of Bash)</Subtitle>
 
 `cd` — change directory
 
@@ -638,10 +682,10 @@ Use <code>type command</code> to check if a command is built-in.
 
 <Spacer />
 
-<div class="grid grid-cols-2 gap-8">
+<Cols gap="8">
 
 <div>
-<Label>Getting help</Label>
+<Subtitle>Getting help</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -653,7 +697,7 @@ Use <code>type command</code> to check if a command is built-in.
 </div>
 
 <div>
-<Label>Example</Label>
+<Subtitle>Example</Subtitle>
 
 <div style="font-size: 0.85em">
 
@@ -666,7 +710,7 @@ help cd    # works!
 
 </div>
 
-</div>
+</Cols>
 
 ---
 
@@ -707,5 +751,5 @@ class: text-center
 
 You now know how to use the command line!
 
-From now on, **always use `man` or `--help` before asking for help**.
+From now on, **always use `man` or `--help` before asking for help**!
 

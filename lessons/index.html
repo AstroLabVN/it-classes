@@ -7,107 +7,190 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --blue: #60aace;
+      --orange: #e8915a;
+      --blue-tint: rgba(96, 170, 206, 0.10);
+      --orange-tint: rgba(232, 145, 90, 0.10);
+      --blue-border: rgba(96, 170, 206, 0.25);
+      --orange-border: rgba(232, 145, 90, 0.25);
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --divider: #e2e8f0;
+      --hover: rgba(0,0,0,0.03);
+      --banner-bg: rgba(96, 170, 206, 0.08);
+      --banner-border: rgba(96, 170, 206, 0.25);
+      --banner-text: #2a7aab;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 4rem 2rem;
+      padding: 2.5rem 1.5rem 4rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      width: 100%;
+      max-width: 720px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--orange);
     }
 
-    .subtitle {
-      color: #94a3b8;
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
-    .topics {
-      width: 100%;
-      max-width: 640px;
-    }
-
-    .topic {
+/* Banner */
+    .banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--banner-bg);
+      border: 1px solid var(--banner-border);
+      border-radius: 0.5rem;
+      color: var(--banner-text);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
       margin-bottom: 2rem;
+      transition: background 0.15s;
     }
 
-    .topic h2 {
-      font-size: 1.3rem;
-      color: #38bdf8;
+    .banner:hover { opacity: 0.85; }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* Cards */
+    .card {
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border: 1px solid var(--divider);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .card.bash {
+      background: var(--blue-tint);
+      border-color: var(--blue-border);
+    }
+
+    .card.misc {
+      background: var(--orange-tint);
+      border-color: var(--orange-border);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 0.75rem;
-      text-transform: capitalize;
+      padding-left: 0.1rem;
     }
 
+    .card.bash .card-title { color: var(--blue); }
+    .card.misc .card-title { color: var(--orange); }
+
+    /* Lessons list */
     .lessons {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    }
+
+    .lessons li + li {
+      border-top: 1px solid var(--divider);
     }
 
     .lessons a {
-      display: block;
-      padding: 0.75rem 1rem;
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 0.5rem;
-      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 0.35rem;
+      color: var(--text);
       text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
+      font-size: 1rem;
+      border-radius: 0.3rem;
+      transition: background 0.12s;
     }
 
     .lessons a:hover {
-      background: #334155;
-      border-color: #818cf8;
+      background: var(--hover);
     }
 
     .lesson-num {
-      color: #818cf8;
-      font-weight: 600;
-      margin-right: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 0.2rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
     }
 
-    footer {
-      margin-top: auto;
-      padding-top: 3rem;
-      color: #475569;
-      font-size: 0.875rem;
+    .card.bash .lesson-num {
+      background: rgba(96, 170, 206, 0.2);
+      color: var(--blue);
     }
+
+    .card.misc .lesson-num {
+      background: rgba(232, 145, 90, 0.2);
+      color: var(--orange);
+    }
+
   </style>
 </head>
 <body>
-  <h1>IT Classes</h1>
-  <p class="subtitle">by AstroLab</p>
+  <div class="header">
+    <h1>IT Classes — AstroLab</h1>
+  </div>
 
-  <div class="topics">
+  <a class="banner" target="_blank" href="misc/00-exercises/">
+    📋 How to Write & Format Your Exercises
+  </a>
 
-    <div class="topic">
-      <h2>Bash</h2>
+  <div class="grid">
+
+    <div class="card bash">
+      <div class="card-title">Bash</div>
       <ul class="lessons">
-        <li><a href="bash/00-setup/"><span class="lesson-num">00</span> - Initial Setup</a></li>
-        <!-- <li><a href="bash/01-intro/"><span class="lesson-num">01</span> Fundamentals</a></li> -->
-        <li><a href="bash/02-command-line/"><span class="lesson-num">02</span> - Command Line (CLI)</a></li>
+        <li><a target="_blank" href="bash/00-setup/"><span class="lesson-num">00</span> Initial Setup</a></li>
+        <li><a target="_blank" href="bash/01-fundamentals/"><span class="lesson-num">01</span> Fundamentals</a></li>
+        <li><a target="_blank" href="bash/02-command-line/"><span class="lesson-num">02</span> Command Line</a></li>
+        <!-- <li><a target="_blank" href="bash/03-filesystem/"><span class="lesson-num">03</span> Files & Filesystem</a></li> -->
       </ul>
     </div>
 
-    <div class="topic">
-      <h2>Misc</h2>
+    <div class="card misc">
+      <div class="card-title">Misc</div>
       <ul class="lessons">
-        <li><a href="misc/01-markdown/"><span class="lesson-num">01</span> - Markdown</a></li>
+        <li><a target="_blank" href="misc/01-markdown/"><span class="lesson-num">01</span> Markdown</a></li>
       </ul>
     </div>
 
   </div>
+
 </body>
 </html>
