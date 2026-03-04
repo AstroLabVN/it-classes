@@ -275,7 +275,7 @@ Same syntax as links, but with a `!` prefix.
 <div>
 <Subtitle>Result</Subtitle>
 
-<img src="/logo.png" alt="Logo" title="Optional title" class="h-20" />
+<img src="./logo.png" alt="Logo" title="Optional title" class="h-20" />
 
 </div>
 </div>
@@ -678,7 +678,7 @@ $ cd test-dir
 
 <p style="font-size:1.4em;font-weight:bold; color:#333; margin-bottom: 2px">Image</p>
 
-<img src="/logo.png" alt="AstroLab Logo" style="height:80px;">
+<img src="./logo.png" alt="AstroLab Logo" style="height:80px;">
 
 </div>
 

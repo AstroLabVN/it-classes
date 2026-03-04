@@ -23,7 +23,7 @@ Unix, GNU, Linux — and how they fit together
 
 <Spacer size="0.5rem" />
 
-<div style="font-size:0.9em; max-width:80%; line-height: 4px">
+<div style="font-size:0.9em; line-height: 4px">
 
 | Term          | What it is                                                                              |
 |---------------|-----------------------------------------------------------------------------------------|
@@ -45,43 +45,46 @@ class: text-center
 
 ---
 
-<img :src="'/bash/unix_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 50px;" />
+<img :src="'./bash/unix_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 50px;" />
 
 # What is Unix?
 
-<Subtitle>The origin</Subtitle>
-
-Unix started at AT&T Bell Labs in 1969 and later evolved into a **whole family of Unix and Unix-like systems**.
+An Operating System created at AT&T Bell Labs in **1969**.
 
 <Spacer size="0.5rem" />
 
-- Created by **Ken Thompson** and **Dennis Ritchie**
-- Born in the era of **time-sharing** — the need for multiple users on one machine
-- First version in **1969**, rewritten in **C** in 1973
-- Its influence spread to virtually **every modern OS**
+<div class="grid gap-4" style="grid-template-columns: 3fr 1.3fr;">
 
-<Callout type="info">The C language was created by Ritchie largely to rewrite Unix.<br>One language, born to serve one OS, ended up powering <strong>most of modern computing</strong>.</Callout>
+<div>
 
----
+- Created by **Dennis Ritchie** and **Ken Thompson**
+- Built in the **time-sharing era** — one powerful computer, many users
+- Bell Labs had worked on Multics, but it was too complex, so they built something **simpler**
+- First Unix version released in **1969** in **assembly** language
+- Rewritten in **C** in **1973**.
+- **C** was developed at Bell Labs (mainly by Ritchie) and enabled Unix to be easier to maintain and move to other machines
 
-<img :src="'/bash/unix_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 50px;" />
+</div>
 
-# Why Unix Was Created
+<div style="text-align: center;">
 
-<Subtitle>Context</Subtitle>
+<img :src="'./bash/pdp11.png'" style="height: 200px" />
 
-- The **time-sharing era** — expensive computers needed to serve many users at once
-- Bell Labs had been part of the **Multics** project, a large and ambitious OS that grew too complex
-- Thompson and Ritchie wanted something **simpler** and more practical
-- Unix became a research tool that escaped the lab
+<p style="font-size: 0.7em; color: #666; margin-top: 0.5rem; margin-right: 0.5rem; text-align: center; line-height: 10px;">
+Ritchie and Thompson working on a PDP-11
+</p>
 
-<Callout type="info">AT&T couldn’t sell Unix like a normal product then, so universities got it cheaply and it spread fast.</Callout>
+</div>
+
+</div>
+
+<Callout type="info">Unix became a research tool that escaped the lab!<br>AT&T couldn’t sell Unix like a normal product then, so universities got it cheaply and it spread fast.</Callout>
 
 ---
 
 # The Unix Legacy
 
-<img :src="'/bash/unix_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 50px;" />
+<img :src="'./bash/unix_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 50px;" />
 
 <Subtitle>Design principles that shaped computing</Subtitle>
 
@@ -90,12 +93,16 @@ Unix introduced ideas that are still at the heart of modern systems:
 <Spacer size="0.5rem" />
 
 - **Everything is a file** — devices, processes, and sockets are accessed like files
-- **Small, sharp tools** — each program does one thing well
+- **Small, sharp tools** — each program does one thing and does it well
 - **Plain text** — universal format for data and configuration
 - **Multi-user** — multiple people can use the same machine at once
 - **Hierarchical filesystem** — one root `/`, everything branches from it
 
-<Callout type="info">These principles are still the foundation of Linux, macOS, and most server Operating Systems today.</Callout>
+<Spacer size="0.5rem" />
+
+**These principles are still the foundation** of Linux, macOS, and most server Operating Systems today.
+
+<Callout type="tip">UNIX was not designed to <strong>stop its users from doing stupid things</strong>, as that would also stop them from doing clever things.</Callout>
 
 ---
 layout: center
@@ -106,21 +113,39 @@ class: text-center
 
 ---
 
-<img :src="'/bash/gnu_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
+<img :src="'./bash/gnu_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
 
 # What is GNU?
 
 <Subtitle>Free as in freedom</Subtitle>
 
+
 A project to build a **complete free Operating System**, compatible with Unix.
 
 <Spacer size="0.5rem" />
+
+<div class="grid gap-4" style="grid-template-columns: 3fr 1.2fr;">
+
+<div>
 
 - Announced in **1983** by **Richard Stallman**
 - **GNU** = **G**NU's **N**ot **U**nix
 - A reaction to **increasing proprietary software** — users were losing the freedom to share and modify code
 - Goal: replace every non-free part of a Unix-like system
 - Founded the **Free Software Foundation** (FSF) in 1985
+
+</div>
+
+<div>
+<img :src="'./bash/stallman.jpg'" />
+<p style="font-size: 1em; color: #666; margin-top: 0.5rem; margin-left: 0; text-align: center; line-height: 10px;">
+  Richard Stallman
+</p>
+</div>
+
+</div>
+
+
 
 ---
 
@@ -135,9 +160,9 @@ A project to build a **complete free Operating System**, compatible with Unix.
 
 - **Bash** — the shell
 - **coreutils** — `ls`, `cp`, `mv`, `rm`…
+- **Make** — build automation
 - **GCC** — the GNU Compiler Collection
 - **glibc** — the C standard library
-- **Make** — build automation
 - **Emacs** — text editor
 
 </div>
@@ -149,10 +174,10 @@ The **GNU General Public License** ensures that software — and all derivative 
 
 This **copyleft** approach means anyone can use, modify, and share the code, but must keep it open.
 
-<Callout type="tip" mt="2rem">By the early 1990s GNU had almost everything — compilers, editors, shell, utilities — <strong>except a working kernel</strong>.</Callout>
-
 </div>
 </Cols>
+
+<Callout type="tip" mt="2rem">By the early 1990s GNU had almost everything — compilers, editors, shell, utilities — <strong>except a working kernel</strong>.</Callout>
 
 ---
 layout: center
@@ -163,30 +188,47 @@ class: text-center
 
 ---
 
-<img :src="'/bash/linux_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
+<img :src="'./bash/linux_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
 
 # What is Linux?
 
 <Subtitle>The missing kernel</Subtitle>
 
-A **Unix-like kernel** started by **Linus Torvalds** in 1991.
+A Unix-like **kernel** started by **Linus Torvalds** in **1991**.
 
 <Spacer size="0.5rem" />
 
+
+<div class="grid gap-8" style="grid-template-columns: 3fr 1.2fr;">
+
+<div>
+
 - Torvalds was a 21-year-old student at the **University of Helsinki**
-- A kernel — and **only** a kernel — no compilers, no shell, no utilities
+- A **kernel** — and <span style="text-decoration: underline;">only a kernel</span> — no compilers, no shell, no utilities
 - Quickly moved to the **GPLv2 license**, enabling massive collaboration
 
+</div>
+
+<div>
+<img :src="'./bash/torvalds.jpg'" />
+<p style="font-size: 1em; color: #666; margin-top: 0.5rem; margin-left: 0; text-align: center; line-height: 10px;">
+  Linus Torvalds
+</p>
+</div>
+
+</div>
+
 <Callout type="tip"><span class="italic">"I'm doing a (free) Operating System (just a hobby, won't be big and professional like GNU)."</span> <span style="margin-left: 1rem;">— Linus Torvalds</span><br><br>It now runs on everything from phones to supercomputers!</Callout>
+
 
 ---
 
 # GNU/Linux: The Complete Picture
 
 <div style="position: absolute; top: 1.5rem; right: 2rem; display: flex; align-items: center; gap: 0.5rem;">
-  <img :src="'/bash/gnu_logo.png'" style="height: 55px;" />
+  <img :src="'./bash/gnu_logo.png'" style="height: 55px;" />
   <span style="font-size: 1.5rem; font-weight: bold; color: #888;">+</span>
-  <img :src="'/bash/linux_logo.png'" style="height: 55px;" />
+  <img :src="'./bash/linux_logo.png'" style="height: 55px;" />
 </div>
 
 <Subtitle>Two halves of one whole</Subtitle>
@@ -220,7 +262,7 @@ A **Unix-like kernel** started by **Linus Torvalds** in 1991.
 
 # The Unix Family Tree
 
-<img :src="'/bash/unix_families.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
+<img :src="'./bash/unix_families.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
 
 <Subtitle>One ancestor, many descendants</Subtitle>
 
@@ -236,8 +278,8 @@ Unix inspired an entire family of Operating Systems — some share code, others 
 | **Android**      | Linux kernel + custom userland    | Smartphones, tablets, TVs |
 | **macOS**        | BSD (Unix) + Mach kernel (Darwin) | Apple computers           |
 | **iOS / iPadOS** | Darwin (same base as macOS)       | iPhones, iPads            |
-| **ChromeOS**     | Linux kernel + Chrome browser     | Chromebooks               |
 | **FreeBSD**      | Direct Unix descendant            | Servers, PlayStation      |
+| **ChromeOS**     | Linux kernel + Chrome browser     | Chromebooks               |
 
 </div>
 
@@ -247,7 +289,7 @@ Unix inspired an entire family of Operating Systems — some share code, others 
 
 # Where is Linux today?
 
-<img :src="'/bash/linux_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
+<img :src="'./bash/linux_logo.png'" style="position: absolute; top: 1.5rem; right: 2rem; height: 70px;" />
 
 <Subtitle>It's everywhere!</Subtitle>
 
@@ -312,18 +354,19 @@ Software that **manages computer resources** and **provides services** to progra
 - **Memory management** — allocate RAM to processes
 - **Process scheduling** — decide which program runs when
 
-**Operating system** = `kernel` + `core tools` + `libraries` + a `user interface`.
+<Spacer size="0.5rem" />
 
-<Callout type="info" mt="2rem">Without an OS, every program would need to know how to talk directly to each piece of hardware — every disk, every keyboard, every screen.</Callout>
+An OS is the **interface** between you and the machine.
+
+Without it, **each program would need its own code** to work with the keyboard, screen, and storage
 
 </div>
 
 <div>
-<img :src="'/bash/os.png'"/>
+<img :src="'./bash/os.png'"/>
 </div>
 
 </div>
-
 
 
 ---
@@ -332,52 +375,28 @@ Software that **manages computer resources** and **provides services** to progra
 
 <Subtitle>The core of every OS</Subtitle>
 
+<div class="grid gap-4" style="grid-template-columns: 3fr 1.5fr;">
+
+<div>
+
+
 The **kernel** is the bridge between applications and hardware.
 
 <Spacer size="0.5rem" />
 
 - Controls **CPU**, **devices**, and **memory**
-- Provides **system calls** — the basic OS services that programs use
+- Provides **system calls** — the basic OS services that programs use (like files, memory, network),
 - Decides which **process** runs and for how long
 
+</div>
+
+<div>
+<img :src="'./bash/kernel.png'"/>
+</div>
+
+</div>
+
 <Callout type="info" mt="2rem">Typical flow: <code>app</code> → <code>system call</code> → <code>kernel</code> → <code>hardware</code></Callout>
-
-
----
-
-# Kernel Space vs User Space
-
-<Subtitle>Two separate worlds</Subtitle>
-
-The system keeps 2 separate areas of memory to **protect the system** so a broken or harmful program can’t easily damage the whole system.
-
-<Spacer size="0.5rem" />
-
-<Cols Cols gap="30px">
-<div>
-
-**Kernel space**
-
-- Where the **kernel** runs
-- Has **full access** to hardware — CPU, RAM, devices
-- Runs **drivers**, scheduler, memory manager
-- A bug here **crashes the entire system**
-
-</div>
-<div>
-
-**User space**
-
-- Where **your programs** run — shell, browser, editor
-- **Cannot** access hardware directly
-- Must ask the kernel via **system calls**
-- A bug here only **crashes that program**
-
-</div>
-</Cols>
-
-<Callout type="info">This separation is what keeps your system stable — one broken app can't take down the whole machine.<br>
-- Your browser crashes → browser closes (user space).<br>- A disk driver crashes → whole system may freeze (kernel space).</Callout>
 
 ---
 
@@ -435,23 +454,24 @@ A **virtual machine** (VM) is a software emulation of a physical computer.
 
 <Subtitle>Skills that pay off everywhere</Subtitle>
 
-
-
 <div style="font-size: 0.95rem">
 
 <Cols>
 <div>
 
-**IT Career**
+**Universal**
 
-- Required for **sysadmin**, **DevOps**, and **cloud** roles
-- Most **servers** in the world run Linux
+- Works on **Linux**, **macOS**, **WSL**, and cloud servers
+- Same skills on a **Raspberry Pi** or on a supercomputer
+- Commands and scripts are **portable** across machines
+
+<Spacer />
 
 **Power**
 
 - **Automate** repetitive tasks with scripts
 - **Combine** small tools to solve complex problems
-- **Remote access** — servers have no graphical interface
+- Work **remotely** (many servers have no GUI)
 
 </div>
 
@@ -459,14 +479,20 @@ A **virtual machine** (VM) is a software emulation of a physical computer.
 
 **Learning**
 
-- Understand **how computers actually work**
-- Build a foundation for **programming** and **networking**
-- **Free and open** — you can read, modify, and learn from the source
+- Learn how the **OS + file system** works
+- Build a base for **programming** and **networking**
+- Practice thinking in **steps and systems**
 
-**It's universal**
+<Spacer />
 
-- Works on Linux, macOS, WSL, cloud servers
-- Same skills from a Raspberry Pi to a supercomputer
+**IT Career**
+
+- Used in **Cloud**, **Sysadmin** and **DevOps** roles
+- Linux is the standard on many **servers**
+- Core **job skills**: 
+  - Read logs
+  - Manage users/permissions
+  - Monitor CPU/RAM/disk
 
 </div>
 </Cols>
