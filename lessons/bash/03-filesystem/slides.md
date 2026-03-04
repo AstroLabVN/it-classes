@@ -1,6 +1,7 @@
 ---
 theme: light-icons
-colorSchema: light
+# colorSchema: light
+colorSchema: dark
 drawings:
   persist: false
 fonts:
@@ -133,7 +134,7 @@ You can <strong>read</strong> most system directories, but you need <strong>root
 
 There are two ways to refer to a file or directory:
 
-<Cols>
+<Cols gap="60px">
 
 <div>
 <Subtitle>Absolute path</Subtitle>
@@ -154,7 +155,6 @@ Works from **anywhere** on the system.
 Starts from your **current directory**.
 
 ```bash
-Documents/notes.txt
 ./Documents/notes.txt
 ```
 
@@ -174,18 +174,18 @@ Use <code>pwd</code> to check your current directory if you're unsure where you 
 
 <div style="font-size:0.7em; max-width:50%; line-height: 2px">
 
-| Symbol | Meaning | Example |
-|--------|---------|---------|
-| `/` | Root directory / path separator | `cd /` |
-| `.` | Current directory | `./script.sh` |
-| `..` | Parent directory (one level up) | `cd ..` |
-| `~` | Home directory | `cd ~` |
+| Symbol | Meaning                         | Example       |
+|--------|---------------------------------|---------------|
+| `/`    | Root directory / path separator | `cd /`        |
+| `.`    | Current directory               | `./script.sh` |
+| `..`   | Parent directory (one level up) | `cd ..`       |
+| `~`    | Home directory                  | `cd ~`        |
 
 </div>
 
 <Spacer />
 
-<Cols>
+<Cols gap="50px">
 
 <div>
 <Subtitle>Example</Subtitle>
@@ -219,7 +219,7 @@ cd ~        # go to /home/student
 
 # Navigating — `cd` and `pwd`
 
-<Cols>
+<Cols gap="50px">
 
 <div>
 <Subtitle>Commands</Subtitle>
@@ -259,7 +259,7 @@ cd -
 
 # Listing Files — `ls`
 
-<Cols>
+<Cols gap="50px">
 
 <div>
 <Subtitle>Commands</Subtitle>
@@ -304,10 +304,10 @@ Files starting with a <code>.</code> (dot) are <strong>hidden</strong>. Use <cod
 # Exercise 1 — Navigate the filesystem
 
 <Callout type="exercise" mt="1rem">
-Run each command below. Write down the output of each <code>pwd</code> in your <code>03-filesystem.md</code> file.
+Run each command below. Write down the output of each <code>pwd</code>.
 </Callout>
 
-<Cols cols="3">
+<Cols cols="3" gap="50px">
 
 <div>
 
@@ -397,47 +397,59 @@ pwd
 
 ---
 
-# Exercise 2 — Explore directories
+# Exercise 2 — What kind of file?
 
 <Callout type="exercise" mt="1rem">
-Use <code>ls</code> to explore these directories. Write what you find in each one.
+Run <code>ls -l</code> (or <code>ls -ld</code> for directories) on each path below. Look at the <strong>first character</strong> of the permissions string to identify the file type.
 </Callout>
 
-<Cols>
+<Cols gap="50px">
 
 <div>
-<Subtitle>Directories to explore</Subtitle>
+<Subtitle>Paths to inspect</Subtitle>
 
 ```bash
-ls /home
-
-ls /tmp
-
-ls /etc
-
-ls /usr/bin
+ls -l  /etc/hostname
+ls -ld /tmp
+ls -l  /dev/null
+ls -l  /bin/ls
+ls -ld /home
 ```
+
+<Subtitle size="sm">Reference</Subtitle>
+
+| Char | Type |
+|------|------|
+| `-` | Regular file |
+| `d` | Directory |
+| `l` | Symbolic link |
+| `c` | Character device |
+| `b` | Block device |
 
 </div>
 
 <div>
-<Subtitle>Expected output</Subtitle>
+<Subtitle>Fill in the table</Subtitle>
 
 <div style="font-size: 0.85em">
 
-For each directory, write:
-- **What kind of files** are in it (config files, programs, personal files...)
-- **How many files** (approximately)
+| Path | 1st char | File type |
+|------|----------|-----------|
+| `/etc/hostname` | | |
+| `/tmp` | | |
+| `/dev/null` | | |
+| `/bin/ls` | | |
+| `/home` | | |
 
 </div>
+
+<Callout type="info" mt="1rem">
+Use <code>ls -ld</code> for directories — otherwise <code>ls -l</code> shows the <em>contents</em> instead of the directory entry itself.
+</Callout>
 
 </div>
 
 </Cols>
-
-<Callout type="info">
-Try <code>ls -la</code> on each directory to see hidden files and details.
-</Callout>
 
 ---
 layout: center

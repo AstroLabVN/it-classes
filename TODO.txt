@@ -1,50 +1,23 @@
+FUNDAMENTALS
+  fix images missing
+  add more images
+
+filesystem
+  command : file
+  basename / dirname
+
+
+
+
+
+
 c'est le "Pourquoi ?" -> 
 pourquoi j'ai besoin de ça ? quel problèm
-
-
-
-why markdown does not have any link ? or other foldesr
-
-
-
-
-<!-- TODO
-
-
-https://www.mooc-course.com/difference-between-shell-and-kernel/
-Key features of a shell:
-
-Provides a command-line interface for users
-Interprets user commands and executes them
-Offers features like command history and tab completion
-Allows scripting for automating tasks
-
-
-How Shell and Kernel Interact
-The shell and kernel work together to provide a functional computing environment:
-
-You enter a command in the shell
-  The shell interprets the command
-  The shell makes appropriate system calls to the kernel
-  The kernel executes the requested operation
-  The kernel returns results to the shell
-  The shell displays the output to you
-For example, when you type “ls” to list files in a directory, the shell translates this into a system call that the kernel understands. The kernel then accesses the file system, retrieves the information, and sends it back to the shell for display.
-
-
-
--->
 
 
 ==========================================================================
 LESSONS IDEAS
 ==========================================================================
-Command line 
-  If you want it even clearer for beginners,
-  I can add one slide with a concrete example: 
-      what happens when you run ls (shell → system call → kernel → filesystem).
-
-
 ssh
   ssh into their linux vm
 

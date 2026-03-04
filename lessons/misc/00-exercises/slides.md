@@ -39,7 +39,7 @@ In IT, **conventions** are everything.
 
 - Create one file per lesson
 - It must have the `.md` extension.
-- The file name should be the **lesson name**, in **lowercase**, with spaces replaced by `_` (underscore).
+- The file name should be the **lesson number** + the **lesson name**, in **lowercase**, with spaces replaced by `_` (underscore).
 
 <Spacer size="1rem" />
 
@@ -48,10 +48,10 @@ In IT, **conventions** are everything.
 
 <div style="font-size: 0.9rem; max-width: 40%; line-height: 4px">
 
-| Lesson name  | File name         |
-|--------------|-------------------|
-| Markdown     | `markdown.md`     |
-| Command Line | `command_line.md` |
+| Lesson          | File name            |
+|-----------------|----------------------|
+| 01 Markdown     | `01_markdown.md`     |
+| 02 Command Line | `02_command_line.md` |
 
 </div>
 
@@ -62,8 +62,6 @@ In IT, **conventions** are everything.
 <Subtitle>Use Heading H2 for each exercise</Subtitle>
 
 Each exercise should be a **Heading H2** (`##`) with its full name, exactly as shown in the lesson slides.
-
-<Spacer size="0.5rem" />
 
 <Cols gap="50px">
 

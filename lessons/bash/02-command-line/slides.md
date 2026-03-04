@@ -21,21 +21,35 @@ How to communicate with your computer through text
 
 A shell is an **interpreted programming language**. It allows users to interact to the Operating System.
 
+<div class="grid gap-4" style="grid-template-columns: 3fr 1.2fr;">
+
+<div>
+
 When used <span style="text-decoration: underline">interactively</span>:
 - The user types **a command**
 - The shell **inteprets** the command, **executes** it and shows the result.
 
-<Spacer />
+<Spacer size="2rem" />
 
 <Subtitle>Several shells exist:</Subtitle>
 
-<div style="font-size:0.9em; max-width:60%; line-height: 2px">
+<div style="font-size:0.9em; max-width:90%; line-height: 2px">
 
 | Shell          | Description                              |
 |----------------|------------------------------------------|
 | **Bash**       | Most common on Linux (default on Ubuntu) |
 | **Zsh**        | Default on macOS since 2019              |
 | **PowerShell** | Default on Windows                       |
+
+</div>
+</div>
+
+<div>
+<img :src="'./bash/shell_kernel_interface.webp'" style="max-height: 250px; margin-top: 30px" />
+<p style="font-size: 0.7em; color: #666; margin-top: 0.5rem; margin-left: 0; text-align: center; line-height: 10px;">
+  The shell is an interface to the kernel
+</p>
+</div>
 
 </div>
 
@@ -63,17 +77,10 @@ When you type a command:
 </div>
 
 <div>
-<img :src="'/bash/shell_kernel.png'" style="max-height: 280px; margin-top: 50px" />
+<img :src="'./bash/shell_kernel.png'" style="max-height: 280px; margin-top: 50px" />
 </div>
 
 </div>
-
-<Callout type="info">Example: when you type <code>ls</code>:
-<br>- The shell runs the <code>ls</code> program
-<br>- <code>ls</code> asks the kernel to read the folder (system calls)
-<br>- The kernel reads the filesystem (from disk/SSD) and returns the list
-<br>- <code>ls</code> prints the list to the terminal, and the shell waits for the next command
-</Callout>
 
 
 ---
@@ -134,7 +141,7 @@ student@laptop:~$
 |-----------|-----------------------------------------|
 | `student` | Your **username**                       |
 | `@`       | Separator                               |
-| `laptop`  | Your **computer's name** (hostname)     |
+| `laptop`  | Your **hostname** (computer's name)     |
 | `:`       | Separator                               |
 | `~`       | Your **current directory** (`~` = home) |
 | `$`       | Ready for input                         |
@@ -213,11 +220,11 @@ ls -l /home
 
 <div style="font-size:0.8em; max-width:80%; line-height: 2px">
 
-| Part    | Role                            |
-|---------|---------------------------------|
-| `ls`    | **Command** — what to do        |
-| `-l`    | **Option** — how to do it       |
-| `/home` | **Argument** — what to do it on |
+| Part    | Role                                     |
+|---------|------------------------------------------|
+| `ls`    | **Command** — what to do                 |
+| `-l`    | **Option** — how to do it                |
+| `/home` | **Argument** — the target of the command |
 
 </div>
 
@@ -230,12 +237,62 @@ Spaces are <strong>required</strong> between each part. <code>ls-l/home</code> d
 Commands are <strong>case-sensitive</strong>: <code>ls</code> works, <code>LS</code> does not.
 </Callout>
 
+---
+
+# Command Syntax Notation
+
+Man pages and `--help` use a standard notation to describe how commands work:
+
+<Cols gap="30px">
+
+<div>
+<Subtitle>Syntax</Subtitle>
+
+<div style="font-size:0.8em; line-height: 2px">
+
+| Symbol | Meaning              | Example                  |
+|--------|----------------------|--------------------------|
+| `[]`   | Optional             | `ls [options] [path]`         |
+| `<>`   | Required placeholder | `cd <directory>`         |
+| `...`  | Repeatable           | `cp <source>... <dest>`  |
+
+</div>
+
+</div>
+
+<div style="font-size: 0.9rem">
+<Subtitle>Real examples</Subtitle>
+
+`ls [options] [path]` — both **optional**:
+
+```bash
+ls                # command alone
+ls -la            # with options only
+ls /home          # with argument only
+ls -la /home      # with both
+```
+
+<Spacer />
+
+`cp <source>... <dest>` — both **required**:
+
+```bash
+# 1 argument for source, 1 argument for dest
+cp file.txt backup.txt
+
+# 2 arguments for source, 1 argument for dest
+cp a.txt b.txt dest/
+```
+
+</div>
+
+</Cols>
 
 ---
 
 # Exercise 2 - Arguments
 
-Arguments are **inputs** you give to a command — they tell it **what to act on**.
+Arguments are **inputs** you give to a command.<br>They tell the command its **target** — the place or thing the command will work on.
 
 <Callout type="exercise" mt="1rem">
 Type each of these commands with their arguments in your terminal. Can you guess what they do?
@@ -254,7 +311,7 @@ mkdir mydir
 
 touch file.txt
 
-cp file1.txt file2.txt
+cp file.txt file2.txt
 ```
 
 </div>
@@ -281,7 +338,7 @@ Some commands accept <strong>multiple arguments</strong>, like <code>cp</code> w
 
 # Exercise 3 - Options (Flags)
 
-Options **modify** the behavior of a command. They come in two forms: `short` or `long`.
+Options **modify** the behavior of a command. They come in two forms: **short** `-` or `**long** `--`.
 
 <Callout type="exercise" mt="1rem">
 Run both commands in each pair and compare the output. Do they produce the same or different output?
