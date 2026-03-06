@@ -85,26 +85,43 @@ When you type a command:
 
 ---
 
-# Terminal vs Shell
+# Terminal and Shell
 
-Two different things that work together:
+<div style="margin-top: -20px">
+
+<Callout type="tip">
+Think of it like this: the <strong>Terminal</strong> is the screen and the <strong>Shell</strong> is the program running on it.
+</Callout>
+
+</div>
 
 <Cols>
 
 <div>
 <Subtitle>Terminal</Subtitle>
 
+<div style="font-size:0.8em">
+
 - The **window** you type in
 - Just a graphical container
 - Examples:
-  - GNOME Terminal (Ubuntu)
-  - iTerm2 (macOS)
-  - Windows Terminal
+   - GNOME Terminal (Ubuntu)
+   - iTerm2 (macOS)
+   - Windows Terminal
+
+</div>
+
+<img :src="'./bash/VT100_terminal.jpg'" style="max-height: 150px; margin-top: 20px; margin-left: 1rem" />
+<p style="font-size: 0.7em; color: #666; margin-top: 0.5rem; margin-left: 3.2rem; line-height: 10px;">
+Old VT100 Terminal
+</p>
 
 </div>
 
 <div>
 <Subtitle>Shell</Subtitle>
+
+<div style="font-size:0.8em">
 
 - The **program** running inside the terminal
 - Interprets and executes your commands
@@ -115,11 +132,16 @@ Two different things that work together:
 
 </div>
 
+<img :src="'./bash/cli_shell.webp'" style="max-height: 150px; margin-top: 20px; margin-left: 1rem" />
+<p style="font-size: 0.7em; color: #666; margin-top: 0.5rem; text-align: center; line-height: 10px;">
+Bash shell
+</p>
+
+
+</div>
+
 </Cols>
 
-<Callout type="tip">
-Think of it like this: the <strong>terminal</strong> is the TV screen, the <strong>shell</strong> is the show running on it.
-</Callout>
 
 ---
 
@@ -252,7 +274,7 @@ Man pages and `--help` use a standard notation to describe how commands work:
 
 | Symbol | Meaning              | Example                  |
 |--------|----------------------|--------------------------|
-| `[]`   | Optional             | `ls [options] [path]`         |
+| `[]`   | Optional             | `ls [options] [path]`    |
 | `<>`   | Required placeholder | `cd <directory>`         |
 | `...`  | Repeatable           | `cp <source>... <dest>`  |
 
