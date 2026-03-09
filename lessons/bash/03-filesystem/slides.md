@@ -51,34 +51,34 @@ Every Linux system follows the same directory structure. Each directory has a sp
 
 <div style="font-size: 0.8em; line-height: 1px">
 
-| Directory        | Purpose                                   |
-| ---------------- | ----------------------------------------- |
-| `/`              | Root directory (everything begins here)   |
-| `/bin`           | Essential user binaries (`ls`, `cp`)      |
-| `/sbin`          | System binaries (`reboot`, `fdisk`)       |
-| `/boot`          | Bootloader files (`vmlinuz`, `grub`)      |
-| `/dev`           | Device files (`/dev/sda`, `/dev/null`)    |
-| `/etc`           | System configuration files                |
-| `/home`          | User home directories                     |
-| `/lib`, `/lib64` | Essential shared libraries                |
-| `/media`         | Removable media mount points              |
-| `/mnt`    | Temporary mount points for sysadmins               |
+| Directory        | Purpose                                 |
+|------------------|-----------------------------------------|
+| `/`              | Root directory (everything begins here) |
+| `/bin`           | Essential user binaries (`ls`, `cp`)    |
+| `/sbin`          | System binaries (`reboot`, `fdisk`)     |
+| `/boot`          | Bootloader files (`vmlinuz`, `grub`)    |
+| `/dev`           | Device files (`/dev/sda`, `/dev/null`)  |
+| `/etc`           | System configuration files              |
+| `/home`          | User home directories                   |
+| `/lib`, `/lib64` | Essential shared libraries              |
+| `/media`         | Removable media mount points            |
+| `/mnt`           | Temporary mount points for sysadmins    |
 
 </div>
 
 <div style="font-size: 0.8em; line-height: 1px">
 
-| Directory | Purpose                                            |
-| --------- | -------------------------------------------------- |
-| `/opt`    | Optional or third-party software                   |
-| `/proc`   | Virtual filesystem for system info                 |
-| `/root`   | Home directory for root user                       |
-| `/run`    | Runtime variable data                              |
-| `/srv`    | Site-specific service data                         |
-| `/sys`    | Interface to the kernel                            |
-| `/tmp`    | Temporary files                                    |
-| `/usr`    | Secondary hierarchy (applications, libraries)      |
-| `/var`    | Variable data (logs, mail, spool files)            |
+| Directory | Purpose                                       |
+|-----------|-----------------------------------------------|
+| `/opt`    | Optional or third-party software              |
+| `/proc`   | Virtual filesystem for system info            |
+| `/root`   | Home directory for root user                  |
+| `/run`    | Runtime variable data                         |
+| `/srv`    | Site-specific service data                    |
+| `/sys`    | Interface to the kernel                       |
+| `/tmp`    | Temporary files                               |
+| `/usr`    | Secondary hierarchy (applications, libraries) |
+| `/var`    | Variable data (logs, mail, spool files)       |
 
 </div>
 
@@ -100,7 +100,7 @@ You don't need to memorize all of these. Run <code>ls -l /</code> to see them on
 
 <div style="font-size: 0.85em">
 
-- `/home/student/` — your **personal files**
+- `/home/student/` — your **personal directory**
 - `/tmp/` — **temporary** files (cleared on reboot)
 - `/root/` — home directory for the **root** user
 
@@ -192,10 +192,10 @@ Use <code>pwd</code> to check your current directory if you're unsure where you 
 
 ```bash
 # If you are in /home/student/Documents
-pwd         # /home/student/Documents
-cd ..       # go to /home/student
-cd ./Downloads  # go to /home/student/Downloads
-cd ~        # go to /home/student
+pwd              # /home/student/Documents
+cd ..            # go to /home/student
+cd ./Downloads   # go to /home/student/Downloads
+cd ~             # go to /home/student
 ```
 
 </div>
@@ -397,59 +397,185 @@ pwd
 
 ---
 
-# Exercise 2 — What kind of file?
+# File Types in Linux
 
-<Callout type="exercise" mt="1rem">
-Run <code>ls -l</code> (or <code>ls -ld</code> for directories) on each path below. Look at the <strong>first character</strong> of the permissions string to identify the file type.
-</Callout>
+Remember: **everything is a file** in Linux. But not all files are the same.
 
-<Cols gap="50px">
+When you run `ls -l`, the **first character** tells you the file type:
 
-<div>
-<Subtitle>Paths to inspect</Subtitle>
+<div style="font-size: 0.85em; max-width: 90%; line-height: 2px">
 
-```bash
-ls -l  /etc/hostname
-ls -ld /tmp
-ls -l  /dev/null
-ls -l  /bin/ls
-ls -ld /home
-```
-
-<Subtitle size="sm">Reference</Subtitle>
-
-| Char | Type |
-|------|------|
-| `-` | Regular file |
-| `d` | Directory |
-| `l` | Symbolic link |
-| `c` | Character device |
-| `b` | Block device |
+| Char | Type             | What it is                                        | Example             | Note    |
+|------|------------------|---------------------------------------------------|---------------------|----------------|
+| `-`  | Regular file     | Text, scripts, binaries — the "normal" files      | `/etc/hostname`     |  |
+| `d`  | Directory        | A folder that contains other files                | `/home`             |  |
+| `l`  | Symbolic link    | A shortcut that points to another file            | `/bin` → `/usr/bin` |  |
+| `c`  | Character device | Interface to hardware (streams data char by char) | `/dev/null`         | rare |
+| `b`  | Block device     | Interface to storage (reads/writes in blocks)     | `/dev/sda`          | rare |
 
 </div>
 
-<div>
-<Subtitle>Fill in the table</Subtitle>
+<Spacer />
+
+<Subtitle>Example</Subtitle>
+
+```bash
+ls -l /etc/hostname
+
+-rw-r--r-- 1 root root 7 Jan 1 10:00 /etc/hostname   # The first character is `-` → regular file.
+
+```
+
+---
+
+# Regular Files (`-`)
+
+The most common type. A regular file holds **data** — text, code, images, binaries, anything.
+
+```bash
+ls -l /etc/hostname
+
+-rw-r--r-- 1 root root 7 Jan  1 10:00 /etc/hostname   # The first character is `-` → regular file.
+```
+
+<Spacer size="2rem" />
+
+<Subtitle>Examples of regular files</Subtitle>
 
 <div style="font-size: 0.85em">
 
-| Path | 1st char | File type |
-|------|----------|-----------|
-| `/etc/hostname` | | |
-| `/tmp` | | |
-| `/dev/null` | | |
-| `/bin/ls` | | |
-| `/home` | | |
+- `/etc/hostname` — system configuration (text)
+- `/home/student/notes.txt` — your own files
+- `/var/log/syslog` — log files (text)
+- `/usr/bin/ls` — a program (binary)
 
 </div>
 
-<Callout type="info" mt="1rem">
-Use <code>ls -ld</code> for directories — otherwise <code>ls -l</code> shows the <em>contents</em> instead of the directory entry itself.
-</Callout>
+---
+
+# Directories (`d`)
+
+A directory is a special file that **contains references to other files and directories**.
+
+```bash
+ls -ld /home
+
+drwxr-xr-x 3 root root 4096 Jan  1 10:00 /home   # The first character is `d` → directory.
+```
+
+<Spacer />
+
+<Subtitle>Why `ls -ld`?</Subtitle>
+
+<Cols>
+
+<div>
+
+`ls -l /home` — shows the **contents** of `/home`:
+
+```
+drwxr-xr-x 5 student student 4096 ... student
+drwxr-xr-x 3 alice   alice   4096 ... alice
+```
+
+</div>
+
+<div>
+
+`ls -ld /home` — shows `/home` **itself**:
+
+```
+drwxr-xr-x 4 root root 4096 ... /home
+```
 
 </div>
 
 </Cols>
+
+<Callout type="tip">
+Without <code>-d</code>, <code>ls</code> looks <strong>inside</strong> the directory instead of showing its own entry.
+</Callout>
+
+---
+
+# Symbolic Links (`l`)
+
+A symbolic link (symlink) is a **shortcut** — a file that points to another file or directory.
+
+```bash
+ls -l /bin
+
+lrwxrwxrwx 1 root root 7 Jan  1 10:00 /bin -> usr/bin   # The first character is `l` → link.
+```
+
+The `->` arrow shows the **target**: accessing `/bin` actually takes you to `/usr/bin`.
+
+<Spacer space="0.5rem" />
+
+<Subtitle>Why do symlinks exist?</Subtitle>
+
+<div style="font-size: 0.85em">
+
+Programs used to live in `/bin`. Modern Linux moved them to `/usr/bin` — but thousands of scripts still reference `/bin/ls`, `/bin/cat`, etc. A symlink lets the **old path keep working** without breaking anything.
+
+</div>
+
+<Spacer space="0.5rem" />
+
+<Cols gap="4rem">
+
+<div>
+<Subtitle>Common symlinks</Subtitle>
+
+<div style="font-size: 0.85em">
+
+```bash
+ls -ld /bin             # /bin -> usr/bin
+ls -l /usr/bin/python3  # python3 -> python3.12
+```
+
+</div>
+
+</div>
+
+<div>
+<Subtitle>Broken links</Subtitle>
+
+<div style="font-size: 0.85em">
+
+If the **target is deleted**, the link still exists but points to nothing — it becomes a **broken link**.
+
+</div>
+
+</div>
+
+</Cols>
+
+
+---
+
+# Exercise 2 — What kind of file?
+
+<Callout type="exercise" mt="1rem">
+Create the table below. Run each command and write your answers in it.
+</Callout>
+
+<Spacer />
+
+<div style="font-size: 0.8em; line-height: 2px; max-width: 80%">
+
+| Command                   | 1st char | File type    | Why `-ld` or `-l`?                   |
+|---------------------------|----------|--------------|--------------------------------------|
+| `ls -l  /etc/passwd`      | `-`      | Regular file | `-l` because it's not a directory    |
+| `ls -l  /etc/hostname`    |          |              |                                      |
+| `ls -ld /tmp`             |          |              |                                      |
+| `ls -l  /dev/null`        |          |              |                                      |
+| `ls -ld /bin`             |          |              |                                      |
+| `ls -ld /home`            |          |              |                                      |
+| `ls -l  /usr/bin/python3` |          |              |                                      |
+
+</div>
+
 
 ---
 layout: center
@@ -464,35 +590,15 @@ class: text-center
 
 `touch` creates an **empty file** (or updates its timestamp if it already exists).
 
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
-
 ```bash
-touch myfile.txt
+touch myfile.txt            # creates one empty file
 
-touch file1.txt file2.txt
+touch file1.txt file2.txt   # creates multiple files at once
 
-touch .hidden-file
+touch .hidden-file          # creates a hidden file
 ```
 
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `touch myfile.txt` — creates **one** empty file
-- `touch file1.txt file2.txt` — creates **multiple** files at once
-- `touch .hidden-file` — creates a **hidden** file
-
-</div>
-
-</div>
-
-</Cols>
+<Spacer />
 
 <Callout type="info">
 <code>touch</code> does <strong>not</strong> add content to the file — it only creates it. The file will be empty (0 bytes).
@@ -502,35 +608,17 @@ touch .hidden-file
 
 # Creating Directories — `mkdir`
 
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
+`mkdir` creates **new directories** (folders).
 
 ```bash
-mkdir mydir
+mkdir mydir                        # creates one directory
 
-mkdir dir1 dir2 dir3
+mkdir dir1 dir2 dir3               # creates multiple directories at once
 
-mkdir -p parent/child/grandchild
+mkdir -p parent/child/grandchild   # creates the entire path (parent directories included)
 ```
 
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `mkdir mydir` — creates **one** directory
-- `mkdir dir1 dir2 dir3` — creates **multiple** at once
-- `mkdir -p parent/child/grandchild` — creates the **entire path** (parent directories included)
-
-</div>
-
-</div>
-
-</Cols>
+<Spacer />
 
 <Callout type="warning">
 Without <code>-p</code>, <code>mkdir parent/child</code> fails if <code>parent/</code> doesn't exist yet.
@@ -540,35 +628,17 @@ Without <code>-p</code>, <code>mkdir parent/child</code> fails if <code>parent/<
 
 # Copying — `cp`
 
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
+`cp` duplicates files or directories — the original stays untouched.
 
 ```bash
-cp file.txt copy.txt
+cp file.txt copy.txt         # copy a file to a **new name**
 
-cp file.txt mydir/
+cp file.txt mydir/           # copy a file **into** a directory
 
-cp -r mydir/ mydir-backup/
+cp -r mydir/ mydir-backup/   # copy an **entire directory** (recursive)
 ```
 
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `cp file.txt copy.txt` — copy a file to a **new name**
-- `cp file.txt mydir/` — copy a file **into** a directory
-- `cp -r mydir/ mydir-backup/` — copy an **entire directory** (recursive)
-
-</div>
-
-</div>
-
-</Cols>
+<Spacer />
 
 <Callout type="warning">
 To copy a directory, you <strong>must</strong> use <code>-r</code> (recursive). Without it, <code>cp</code> will refuse.
@@ -580,35 +650,15 @@ To copy a directory, you <strong>must</strong> use <code>-r</code> (recursive). 
 
 `mv` does two things: **move** files and **rename** them.
 
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
-
 ```bash
-mv old.txt new.txt
+mv old.txt new.txt    # rename a file
 
-mv file.txt mydir/
+mv file.txt mydir/    # move a file into a directory
 
-mv mydir/ /tmp/
+mv mydir/ /tmp/       # move a directory
 ```
 
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `mv old.txt new.txt` — **rename** a file
-- `mv file.txt mydir/` — **move** a file into a directory
-- `mv mydir/ /tmp/` — **move** a directory
-
-</div>
-
-</div>
-
-</Cols>
+<Spacer />
 
 <Callout type="info">
 Unlike <code>cp</code>, <code>mv</code> works on directories <strong>without</strong> needing <code>-r</code>.
@@ -618,38 +668,19 @@ Unlike <code>cp</code>, <code>mv</code> works on directories <strong>without</st
 
 # Deleting — `rm` and `rmdir`
 
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
+`rm` deletes files, `rmdir` deletes **empty** directories.
 
 ```bash
-rm file.txt
+rm file.txt                # delete one file
 
-rm file1.txt file2.txt
+rm file1.txt file2.txt     # delete multiple files
 
-rmdir emptydir/
+rmdir emptydir/            # delete an empty directory only
 
-rm -r mydir/
+rm -r mydir/               # delete a directory and everything inside
 ```
 
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `rm file.txt` — delete **one** file
-- `rm file1.txt file2.txt` — delete **multiple** files
-- `rmdir emptydir/` — delete an **empty** directory only
-- `rm -r mydir/` — delete a directory and **everything inside**
-
-</div>
-
-</div>
-
-</Cols>
+<Spacer />
 
 <Callout type="danger">
 <code>rm</code> is <strong>permanent</strong> — there is no trash bin, no undo. Double-check before you delete!
@@ -660,10 +691,11 @@ rm -r mydir/
 # Exercise 3 — Create a project structure
 
 <Callout type="exercise" mt="1rem">
-Create the following directory structure using <code>mkdir</code> and <code>touch</code>. Then verify with <code>ls -R</code>.
+Create the following directory structure using <code>mkdir</code> and <code>touch</code>. Then verify with <code>ls -R</code>.<br>
+Write each command you used.
 </Callout>
 
-```
+```bash
 ~/my-project/
 ├── src/
 │   ├── main.sh
@@ -674,31 +706,20 @@ Create the following directory structure using <code>mkdir</code> and <code>touc
     └── test1.sh
 ```
 
-<Cols>
+<Spacer size="0.5rem" />
 
-<div>
-<Subtitle>Hints</Subtitle>
+<Callout type="exercise" mt="1rem">
+Write the command to create the following directory structure in <code>one command</code> only.
+</Callout>
 
-<div style="font-size: 0.85em">
-
-- Use `mkdir -p` to create nested directories
-- Use `touch` to create the files
-- Use `ls -R ~/my-project` to verify
-
-</div>
-
-</div>
-
-<div>
-<Subtitle>Verify</Subtitle>
 
 ```bash
-ls -R ~/my-project
+~/my-project-2/
+my-project-2/
+└── folder1
+    └── folder2
+        └── folder3
 ```
-
-</div>
-
-</Cols>
 
 ---
 
@@ -718,10 +739,6 @@ Using the project from Exercise 3, perform these operations. Use <code>ls</code>
 6. **Verify** your final structure with `ls -R ~/my-project`
 
 </div>
-
-<Callout type="tip">
-Remember: <code>cp -r</code> for copying directories, <code>rmdir</code> for empty directories.
-</Callout>
 
 ---
 
@@ -856,14 +873,14 @@ less /etc/passwd
 
 <div style="font-size:0.7em; max-width:50%; line-height: 2px">
 
-| Key | Action |
-|-----|--------|
+| Key           | Action               |
+|---------------|----------------------|
 | `f` / `Space` | Scroll down one page |
-| `b` | Scroll up one page |
-| `Up` / `Down` | Scroll one line |
-| `/word` | Search for "word" |
-| `n` | Next search result |
-| `q` | Quit |
+| `b`           | Scroll up one page   |
+| `Up` / `Down` | Scroll one line      |
+| `/word`       | Search for "word"    |
+| `n`           | Next search result   |
+| `q`           | Quit                 |
 
 </div>
 
@@ -881,14 +898,14 @@ Use the right command for each task. Write the command you used and the output.
 
 <div style="font-size: 0.85em">
 
-| # | Task | Command |
-|---|------|---------|
-| 1 | Display the content of `/etc/hostname` | `???` |
-| 2 | Display the **first 3 lines** of `/etc/passwd` | `???` |
-| 3 | Display the **last 5 lines** of `/etc/passwd` | `???` |
-| 4 | Display `/etc/passwd` **with line numbers** | `???` |
-| 5 | Scroll through `/etc/passwd` interactively | `???` |
-| 6 | Count how many **lines** are in `/etc/passwd` | `???` |
+| # | Task                                           | Command |
+|---|------------------------------------------------|---------|
+| 1 | Display the content of `/etc/hostname`         | `???`   |
+| 2 | Display the **first 3 lines** of `/etc/passwd` | `???`   |
+| 3 | Display the **last 5 lines** of `/etc/passwd`  | `???`   |
+| 4 | Display `/etc/passwd` **with line numbers**    | `???`   |
+| 5 | Scroll through `/etc/passwd` interactively     | `???`   |
+| 6 | Count how many **lines** are in `/etc/passwd`  | `???`   |
 
 </div>
 
