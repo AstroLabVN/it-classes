@@ -73,6 +73,7 @@ class: text-center
 - Use `{monaco}` after the language tag for editable code blocks
 - The AstroLab logo is automatically displayed bottom-right on all slides via `global-bottom.vue`
 - Slidev layouts used: `center` (cover slides, section dividers), `default` (content slides)
+- **Images from `public/`:** Always use dynamic `:src` binding with relative paths: `:src="'./bash/image.png'"`. Never use static `src="./image.png"` — Vite treats it as a module import and the build fails. Never use absolute paths (`/image.png`) — they break on GitHub Pages.
 
 ### Cover Slide Pattern
 
