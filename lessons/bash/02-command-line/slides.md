@@ -1,6 +1,7 @@
 ---
 theme: light-icons
-colorSchema: light
+colorSchema: dark
+#colorSchema: light
 drawings:
   persist: false
 fonts:
@@ -19,7 +20,7 @@ How to communicate with your computer through text
 
 # What is a Shell?
 
-A shell is an **interpreted programming language**. It allows users to interact to the Operating System.
+A shell is an **interpreted programming language**. It allows users to interact with the Operating System.
 
 <div class="grid gap-4" style="grid-template-columns: 3fr 1.2fr;">
 
@@ -27,7 +28,7 @@ A shell is an **interpreted programming language**. It allows users to interact 
 
 When used <span style="text-decoration: underline">interactively</span>:
 - The user types **a command**
-- The shell **inteprets** the command, **executes** it and shows the result.
+- The shell **interprets** the command, **executes** it and shows the result.
 
 <Spacer size="2rem" />
 
@@ -203,10 +204,10 @@ clear
 
 <Subtitle>Expected Output</Subtitle>
 
-- `whoami` — explanation of the command
-- `hostname` — explanation of the command
-- `date` — explanation of the command
-- `clear` — explanation of the command
+- `whoami` — your explanation
+- `hostname` — your explanation
+- `date` — your explanation
+- `clear` — your explanation
 
 </div>
 
@@ -360,7 +361,7 @@ Some commands accept <strong>multiple arguments</strong>, like <code>cp</code> w
 
 # Exercise 3 - Options (Flags)
 
-Options **modify** the behavior of a command. They come in two forms: **short** `-` or `**long** `--`.
+Options **modify** the behavior of a command. They come in two forms: **short** `-` or **long** `--`.
 
 <Callout type="exercise" mt="1rem">
 Run both commands in each pair and compare the output. Do they produce the same or different output?
@@ -631,7 +632,7 @@ Look at the <strong>NAME</strong> section at the top of each man page — it giv
 # Exercise 6 — Reading man pages
 
 <Callout type="exercise" mt="1rem">
-Use <code>man</code> to find what each <strong>option</strong> does. Write a one-line explanation for each.
+Use <code>man</code> to find what each <strong>option</strong> does. Write a <strong>one-line explanation</strong> for each.
 </Callout>
 
 <Cols>
@@ -679,7 +680,7 @@ In the man page, go to the <strong>OPTIONS</strong> section to find what each fl
 # Exercise 7 — Find the right option
 
 <Callout type="exercise" mt="1rem">
-For each task, use <code>man</code> to find the right option. Write the full command.
+For each task, use <code>man</code> to find the right option. Write the <strong>full command.</strong>
 </Callout>
 
 <div style="font-size: 0.8em; max-width: 85%; line-height: 6px">
@@ -713,7 +714,7 @@ Not all commands support <code>--help</code>. Some only have <code>man</code> pa
 
 <Spacer />
 
-<Cols gap="8">
+<Cols gap="2.2rem">
 
 <div>
 <Subtitle>Why the difference?</Subtitle>
@@ -824,11 +825,62 @@ layout: center
 class: text-center
 ---
 
+<Title>But wait, there are simpler solutions!</Title>
+
+---
+
+# TLDR Pages — a Friendlier Alternative
+
+Man pages are **thorough** — sometimes *too* thorough. Scrolling through hundreds of lines just to find one option can feel overwhelming.
+
+Remember: the goal is to **find the information you need**, not to memorize everything.
+
+<Subtitle>TLDR Pages</Subtitle>
+
+The website [tldr.inbrowser.app](https://tldr.inbrowser.app/) gives you **short, practical examples** for common commands.
+
+# Exercise 9
+
+<Callout type="exercise" mt="1rem">
+Go back to the commands from <strong>Exercise 7</strong> (<code>ls</code>, <code>head</code>, <code>uptime</code>, <code>whoami</code>, <code>uname</code>).<br>
+Look them up on <a href="https://tldr.inbrowser.app/" target="_blank">tldr.inbrowser.app</a> and compare with what you found in <code>man</code>.
+</Callout>
+
+
+<Callout type="warning">
+TLDR pages are great for quick lookups, but <code>man</code> and official documentation remain the <strong>only true source of truth</strong>. When in doubt, always check <code>man</code>.
+</Callout>
+
+---
+layout: center
+class: text-center
+---
+
 <Title>Well done!</Title>
 
 <Spacer />
 
 You now know how to use the command line!
 
-From now on, **always use `man` or `--help` before asking for help**!
+From now on, **always use** `man` or `--help` (or even tldr) **before** asking for help!
 
+RTFM!
+
+---
+layout: center
+class: text-center
+---
+
+<Title size="2em">What's Next?</Title>
+
+<Spacer />
+
+### Next lesson: **Files & Filesystem**
+
+Navigate directories, create and move files, understand paths and permissions.
+
+<Spacer size="2rem" />
+
+<Callout type="tip">
+Practice today's commands until they feel natural — you'll need them every day!
+</Callout>
