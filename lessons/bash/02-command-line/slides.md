@@ -1,7 +1,6 @@
 ---
 theme: light-icons
-colorSchema: dark
-#colorSchema: light
+colorSchema: light
 drawings:
   persist: false
 fonts:
