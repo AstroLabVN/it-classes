@@ -83,3 +83,22 @@ class: text-center
 <Spacer />
 
 You are now ready to dive into the <strong>Bash</strong> course!
+
+---
+layout: center
+class: text-center
+---
+
+<Title size="2em">What's Next?</Title>
+
+<Spacer />
+
+### Next lesson: **Fundamentals**
+
+What is Unix, Linux, an OS, a kernel, and why learn Bash.
+
+<Spacer size="2rem" />
+
+<Callout type="tip">
+Make sure VirtualBox, Ubuntu, and VS Code are installed before the next lesson!
+</Callout>

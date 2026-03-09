@@ -508,5 +508,13 @@ class: text-center
 
 <Spacer />
 
-It's time to run your first commands!
+### Next lesson: **Command Line (CLI)**
+
+Learn how to communicate with your computer through text.
+
+<Spacer size="2rem" />
+
+<Callout type="tip">
+You now understand the foundations — next, you'll start typing real commands!
+</Callout>
 
