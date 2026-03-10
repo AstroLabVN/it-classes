@@ -101,6 +101,47 @@ Each exercise should be a **Heading H2** (`##`) with its full name, exactly as s
 </Cols>
 
 ---
+
+# Writing commands in your file
+
+<Subtitle>Always use Code Blocks for commands and code</Subtitle>
+
+**Always** use a Code Block with the **language name** after the opening backticks for commands or code. 
+
+<Cols gap="50px">
+
+<div>
+<Subtitle>Syntax</Subtitle>
+
+<pre style="font-size:0.85em; background:#f1f5f9; border-radius:8px; padding:1rem 1.5rem; line-height:1.6; margin:0;"><code>## Exercise 3 — Navigation
+
+&#96;&#96;&#96;bash
+cd /home/student
+pwd
+ls -la
+&#96;&#96;&#96;</code></pre>
+</div>
+
+<div>
+<Subtitle>Output</Subtitle>
+
+<p style="font-size:1em;font-weight:bold; color:#333; margin-bottom: -1px">Exercise 3 — Navigation</p>
+
+```bash
+cd /home/student
+pwd
+ls -la
+```
+
+</div>
+
+</Cols>
+
+<Callout type="tip">
+It makes it readable and shows you follow <strong>professional conventions</strong>.
+</Callout>
+
+---
 layout: center
 class: text-center
 ---
