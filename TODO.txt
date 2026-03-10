@@ -1,14 +1,25 @@
-FUNDAMENTALS
-  fix images missing
-  add more images
+command line : talk about spaces = many spaces still work 
+
 
 filesystem
   command : file
   basename / dirname
 
+- History command (history, Ctrl+R for reverse search) — very useful for beginners and fits naturally after keyboard shortcuts
+- Exit/logout — exit, Ctrl+D — students should know how to close a shell session
+- Command chaining basics — quick intro to ; and && (run two commands in sequence) since students will need this soon
+- Error messages — a slide explaining how to read a typical bash error ("command not found", "permission denied", "no such file or directory") so students don't panic
+- which command — pairs well with the built-in vs external discussion, and is more commonly used than type in practice
+- A summary/cheat-sheet slide before the closing slide — a single reference table with all commands learned
 
 
+files
+ cat vs less vs more
 
+
+find
+  regex
+  basic batch operations
 
 
 c'est le "Pourquoi ?" -> 
@@ -18,13 +29,29 @@ pourquoi j'ai besoin de ça ? quel problèm
 ==========================================================================
 LESSONS IDEAS
 ==========================================================================
+simple script
+
+source file
+
 ssh
   ssh into their linux vm
 
+install apt package
 
-simple script
+
+vars
+vars substition
+trap
+redirection
+https://8gwifi.org/tutorials/bash/practices-logging.jsp
+history
 
 https://saurabhshivde.hashnode.dev/day-4-90daysofdevops
+
+● Your tmux server process is still running with old group memberships from before you were    
+  added to the docker group. tmux reuses a long-running server process, so even new tmux       
+  windows inherit the original groups. 
+
 
 markdown
   links to titles in the same file ??

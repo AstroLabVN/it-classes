@@ -1,7 +1,6 @@
 ---
 theme: light-icons
-# colorSchema: light
-colorSchema: dark
+colorSchema: light
 drawings:
   persist: false
 fonts:
@@ -706,8 +705,6 @@ Write each command you used.
     └── test1.sh
 ```
 
-<Spacer size="0.5rem" />
-
 <Callout type="exercise" mt="1rem">
 Write the command to create the following directory structure in <code>one command</code> only.
 </Callout>
@@ -726,7 +723,7 @@ my-project-2/
 # Exercise 4 — Copy, move, delete
 
 <Callout type="exercise" mt="1rem">
-Using the project from Exercise 3, perform these operations. Use <code>ls</code> to verify after each step.
+Using the project structure from <strong>Exercise 3</strong>, perform these operations. Use <code>ls</code> to verify after each step.
 </Callout>
 
 <div style="font-size: 0.85em">
@@ -737,8 +734,13 @@ Using the project from Exercise 3, perform these operations. Use <code>ls</code>
 4. **Move** `tests/test1.sh` to `src/test1.sh`
 5. **Delete** the `tests/` directory (it should be empty now)
 6. **Verify** your final structure with `ls -R ~/my-project`
+7. Run `history` to review all the commands you ran, then **copy them into your Markdown file**
 
 </div>
+
+<Callout type="tip">
+<code>history</code> displays all the commands you've typed in the current session — very useful to retrace your steps!
+</Callout>
 
 ---
 
@@ -752,29 +754,45 @@ Each command below contains an <strong>error</strong>. For each one:
 3. **Write** the corrected command
 </Callout>
 
-<Subtitle>Broken commands</Subtitle>
+<Spacer />
+
+<Cols>
+
+<div>
+<Subtitle>1 — Copy a file</Subtitle>
 
 ```bash
-# 1
 cp -r file.txt file-copy.txt
 ```
 
+<Spacer />
+
+<Subtitle>2 — Create a directory called "my project"</Subtitle>
+
 ```bash
-# 2
 mkdir my project
 ```
 
-```bash
-# 3
-rmdir mydir/
-# (mydir/ contains files)
-```
+</div>
+
+<div>
+<Subtitle>3 — Delete a directory with files inside</Subtitle>
 
 ```bash
-# 4
-cd documents
-# (you want to go to /home/student/Documents)
+rmdir mydir/
 ```
+
+<Spacer />
+
+<Subtitle>4 — Go to /home/student/Documents</Subtitle>
+
+```bash
+cd documents
+```
+
+</div>
+
+</Cols>
 
 ---
 layout: center
@@ -789,77 +807,21 @@ class: text-center
 
 `cat` prints the **entire content** of a file.
 
-<Cols>
-
-<div>
 <Subtitle>Syntax</Subtitle>
 
 ```bash
-cat /etc/hostname
+cat /etc/hostname    # display the file content
 
-cat -n /etc/passwd
+
+cat -n /etc/passwd   # display with line numbers
 ```
 
-</div>
+<Spacer />
 
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `cat /etc/hostname` — display the file content
-- `cat -n /etc/passwd` — display with **line numbers**
-
-</div>
-
-</div>
-
-</Cols>
-
-<Callout type="warning">
+<Callout type="tip">
 <code>cat</code> dumps the <strong>entire</strong> file at once. For large files, use <code>head</code>, <code>tail</code>, or <code>less</code> instead.
 </Callout>
 
----
-
-# First & Last Lines — `head` and `tail`
-
-<Cols>
-
-<div>
-<Subtitle>Syntax</Subtitle>
-
-```bash
-head /etc/passwd
-
-head -5 /etc/passwd
-
-tail /etc/passwd
-
-tail -3 /etc/passwd
-```
-
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-<div style="font-size: 0.85em">
-
-- `head` — show the **first 10 lines** (default)
-- `head -5` — show the **first 5 lines**
-- `tail` — show the **last 10 lines** (default)
-- `tail -3` — show the **last 3 lines**
-
-</div>
-
-</div>
-
-</Cols>
-
-<Callout type="info">
-<code>head</code> and <code>tail</code> are very useful for <strong>large files</strong> — you don't need to see the entire file to check its content.
-</Callout>
 
 ---
 
@@ -870,6 +832,8 @@ tail -3 /etc/passwd
 ```bash
 less /etc/passwd
 ```
+
+<Spacer />
 
 <div style="font-size:0.7em; max-width:50%; line-height: 2px">
 
@@ -884,8 +848,33 @@ less /etc/passwd
 
 </div>
 
+<Spacer />
+
 <Callout type="tip">
 These are the <strong>same shortcuts</strong> as <code>man</code> pages — because <code>man</code> uses <code>less</code> under the hood!
+</Callout>
+
+
+---
+
+# First & Last Lines — `head` and `tail`
+
+`head` shows the **beginning** of a file, `tail` shows the **end**.
+
+```bash
+head /etc/passwd        # show the first 10 lines (default)
+
+head -5 /etc/passwd     # show the first 5 lines
+
+tail /etc/passwd        # show the last 10 lines (default)
+
+tail -3 /etc/passwd     # show the last 3 lines
+```
+
+<Spacer />
+
+<Callout type="info">
+<code>head</code> and <code>tail</code> are very useful for <strong>large files</strong> — you don't need to see the entire file to check its content.
 </Callout>
 
 ---
@@ -896,7 +885,9 @@ These are the <strong>same shortcuts</strong> as <code>man</code> pages — beca
 Use the right command for each task. Write the command you used and the output.
 </Callout>
 
-<div style="font-size: 0.85em">
+<Spacer />
+
+<div style="font-size: 0.8em; max-width: 70%; line-height: 2px">
 
 | # | Task                                           | Command |
 |---|------------------------------------------------|---------|
@@ -908,6 +899,8 @@ Use the right command for each task. Write the command you used and the output.
 | 6 | Count how many **lines** are in `/etc/passwd`  | `???`   |
 
 </div>
+
+<Spacer />
 
 <Callout type="tip">
 For #6, check <code>man wc</code> — you learned this command in the previous lesson!
@@ -925,27 +918,45 @@ Each command below contains an <strong>error</strong>. For each one:
 3. **Write** the corrected command
 </Callout>
 
-<Subtitle>Broken commands</Subtitle>
+<Spacer />
+
+<Cols>
+
+<div>
+<Subtitle>1 — Display a file's content</Subtitle>
 
 ```bash
-# 1
 cat /etc/doesnotexist.txt
 ```
 
+<Spacer />
+
+<Subtitle>2 — Show the first 5 lines</Subtitle>
+
 ```bash
-# 2
 head 5 /etc/passwd
 ```
 
+</div>
+
+<div>
+<Subtitle>3 — Create a file in /etc</Subtitle>
+
 ```bash
-# 3
 touch /etc/myfile.txt
 ```
 
+<Spacer />
+
+<Subtitle>4 — Move a file</Subtitle>
+
 ```bash
-# 4
 mv file.txt
 ```
+
+</div>
+
+</Cols>
 
 ---
 layout: center
@@ -958,4 +969,21 @@ class: text-center
 
 You now know how to navigate, create, and manage files!
 
-Next up: **file permissions** — who can read, write, and execute.
+---
+layout: center
+class: text-center
+---
+
+<Title size="2em">What's Next?</Title>
+
+<Spacer />
+
+### Next lesson: **File Permissions**
+
+Who can read, write, and execute — and how to change it.
+
+<Spacer size="2rem" />
+
+<Callout type="tip">
+Practice creating, moving, and deleting files until it feels natural!
+</Callout>

@@ -100,6 +100,45 @@ class: text-center
 <Title>Section Name</Title>
 ```
 
+### Closing Slides Pattern
+
+Every lesson ends with two `center` layout slides:
+
+1. **"Well done!"** — congratulations + one-line summary of what was learned
+2. **"What's Next?"** — teaser for the next lesson + a `<Callout type="tip">` with encouragement
+
+```md
+---
+layout: center
+class: text-center
+---
+
+<Title>Well done!</Title>
+
+<Spacer />
+
+You now know how to [summary of lesson]!
+
+---
+layout: center
+class: text-center
+---
+
+<Title size="2em">What's Next?</Title>
+
+<Spacer />
+
+### Next lesson: **Lesson Title**
+
+Short description of what's coming next.
+
+<Spacer size="2rem" />
+
+<Callout type="tip">
+Encouragement or practice suggestion!
+</Callout>
+```
+
 ## Components
 
 **Always use components instead of raw HTML.** Components ensure visual consistency across all lessons and are easier to maintain.
