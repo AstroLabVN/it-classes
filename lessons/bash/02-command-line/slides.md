@@ -341,10 +341,10 @@ cp file.txt file2.txt
 <div>
 <Subtitle>Expected output</Subtitle>
 
-- `echo Hello` — explanation
-- `mkdir mydir` — explanation
-- `touch file.txt` — explanation
-- `cp file.txt file2.txt` — explanation
+- `echo Hello` — your explanation
+- `mkdir mydir` — your explanation
+- `touch file.txt` — your explanation
+- `cp file.txt file2.txt` — your explanation
 
 </div>
 
