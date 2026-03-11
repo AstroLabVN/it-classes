@@ -443,12 +443,12 @@ Try each shortcut in your terminal. Practice until they become muscle memory!
 
 <div style="font-size: 0.8rem; line-height: 2px; max-width: 80%">
 
-| Key        | Action                    |
-|------------|---------------------------|
-| `↑` (Up Arrow)        | Recall previous command   |
-| `↓` (Down Arrow)        | Recall next command       |
-| `Tab`      | Auto-complete name        |
-| `Tab Tab`  | Show all completions      |
+| Key              | Action                  |
+|------------------|-------------------------|
+| `↑` (Up Arrow)   | Recall previous command |
+| `↓` (Down Arrow) | Recall next command     |
+| `Tab`            | Auto-complete name      |
+| `Tab Tab`        | Show all completions    |
 
 </div>
 
@@ -465,17 +465,17 @@ Try each shortcut in your terminal. Practice until they become muscle memory!
 
 <div style="font-size: 0.75rem; line-height: 2px; max-width: 100%">
 
-| Key        | Action                                      |
-|------------|---------------------------------------------|
-| `Ctrl + ←` / `→`   | Move one word left / right          |
-| `Ctrl + a`         | Move cursor to start of line        |
-| `Ctrl + e`         | Move cursor to end of line          |
-| `Ctrl + l`         | Clear the screen                    |
-| `Ctrl + u`         | Delete from cursor to start of line |
-| `Ctrl + k`         | Delete from cursor to end of line   |
-| `Ctrl + w`         | Delete one word backward (to previous space)           |
-| `Alt + Backspace`  | Delete one word backward (to previous separator)           |
-| `Ctrl + c`         | Cancel / kill current command       |
+| Key               | Action                                           |
+|-------------------|--------------------------------------------------|
+| `Ctrl + ←` / `→`  | Move one word left / right                       |
+| `Ctrl + a`        | Move cursor to start of line                     |
+| `Ctrl + e`        | Move cursor to end of line                       |
+| `Ctrl + l`        | Clear the screen                                 |
+| `Ctrl + u`        | Delete from cursor to start of line              |
+| `Ctrl + k`        | Delete from cursor to end of line                |
+| `Ctrl + w`        | Delete one word backward (to previous space)     |
+| `Alt + Backspace` | Delete one word backward (to previous separator) |
+| `Ctrl + c`        | Cancel / kill current command                    |
 
 </div>
 

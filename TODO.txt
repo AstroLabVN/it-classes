@@ -1,20 +1,22 @@
-command line : talk about spaces = many spaces still work 
+cli 
+  keyboard shortcuts
+  move one word with crl
+  delete with ctrl + w 
+  delete with alt + backspace
 
-
-filesystem
+scripting
   command : file
   basename / dirname
+
+
+files
+ cat vs less
 
 - History command (history, Ctrl+R for reverse search) — very useful for beginners and fits naturally after keyboard shortcuts
 - Exit/logout — exit, Ctrl+D — students should know how to close a shell session
 - Command chaining basics — quick intro to ; and && (run two commands in sequence) since students will need this soon
 - Error messages — a slide explaining how to read a typical bash error ("command not found", "permission denied", "no such file or directory") so students don't panic
 - which command — pairs well with the built-in vs external discussion, and is more commonly used than type in practice
-- A summary/cheat-sheet slide before the closing slide — a single reference table with all commands learned
-
-
-files
- cat vs less vs more
 
 
 find
@@ -37,6 +39,13 @@ ssh
   ssh into their linux vm
 
 install apt package
+
+
+basic keyboard shortcuts
+  move cursors
+  browser
+  files : create dir, etc
+  windows (set on the side, )
 
 
 vars

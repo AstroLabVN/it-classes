@@ -169,6 +169,31 @@ Use <code>pwd</code> to check your current directory if you're unsure where you 
 
 ---
 
+# Navigating — `cd` and `pwd`
+
+`cd` changes your **current directory**, `pwd` prints **where you are**.
+
+```bash
+pwd            # print current directory
+
+cd /tmp        # go to /tmp (absolute path)
+
+cd ~           # go home
+
+cd ..          # go up one level
+
+cd -           # go to previous directory
+
+cd             # go home (same as cd ~)
+```
+
+<Callout type="tip">
+Use <strong>Tab</strong> to autocomplete paths — type <code>cd /ho</code> then press <code>Tab</code> and it completes to <code>/home/</code>.<br>
+Use <strong>Alt + Backspace</strong> to delete one path segment at a time — much faster than holding Backspace!
+</Callout>
+
+---
+
 # Path Symbols
 
 <div style="font-size:0.7em; max-width:50%; line-height: 2px">
@@ -213,46 +238,6 @@ cd ~             # go to /home/student
 </div>
 
 </Cols>
-
----
-
-# Navigating — `cd` and `pwd`
-
-<Cols gap="50px">
-
-<div>
-<Subtitle>Commands</Subtitle>
-
-```bash
-pwd
-
-cd /tmp
-
-cd ~
-
-cd ..
-
-cd -
-```
-
-</div>
-
-<div>
-<Subtitle>What they do</Subtitle>
-
-- `pwd` — **print** current directory
-- `cd /tmp` — go to `/tmp` (absolute)
-- `cd ~` — go **home**
-- `cd ..` — go **up** one level
-- `cd -` — go to **previous** directory
-
-</div>
-
-</Cols>
-
-<Callout type="info">
-<code>cd</code> without any argument also takes you home — same as <code>cd ~</code>.
-</Callout>
 
 ---
 
