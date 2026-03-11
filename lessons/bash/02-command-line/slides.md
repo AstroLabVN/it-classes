@@ -430,43 +430,52 @@ Short options (<code>-l</code>) and long options (<code>--format=long</code>) of
 
 # Keyboard Shortcuts
 
-Learn these shortcuts — they will save you a lot of time!
+<!-- Learn these shortcuts — they will save you a lot of time! -->
 
 <Callout type="exercise" mt="1rem">
 Try each shortcut in your terminal. Practice until they become muscle memory!
 </Callout>
 
-<Cols>
+<Cols gap="2rem">
 
 <div>
 <Subtitle>Navigation</Subtitle>
 
-<div style="font-size: 0.9rem; line-height: 2px; max-width: 90%">
+<div style="font-size: 0.8rem; line-height: 2px; max-width: 80%">
 
-| Key          | Action                          |
-|--------------|---------------------------------|
-| `Up Arrow`   | Recall previous command         |
-| `Down Arrow` | Recall next command             |
-| `Tab`        | Auto-complete file/command name |
-| `Tab Tab`    | Show all possible completions   |
+| Key        | Action                    |
+|------------|---------------------------|
+| `↑` (Up Arrow)        | Recall previous command   |
+| `↓` (Down Arrow)        | Recall next command       |
+| `Tab`      | Auto-complete name        |
+| `Tab Tab`  | Show all completions      |
 
 </div>
+
+<Spacer />
+
+<Callout type="tip" mt="2">
+<strong>Tab completion</strong> is your best friend !<br>Start typing a file or directory name and press <code>Tab</code> to auto-complete it!
+</Callout>
 
 </div>
 
 <div>
 <Subtitle>Editing & Control</Subtitle>
 
-<div style="font-size: 0.9rem; line-height: 2px; max-width: 85%">
+<div style="font-size: 0.75rem; line-height: 2px; max-width: 100%">
 
-| Key        | Action                              |
-|------------|-------------------------------------|
-| `Ctrl + l` | Clear the screen                    |
-| `Ctrl + u` | Delete from cursor to start of line |
-| `Ctrl + k` | Delete from cursor to end of line   |
-| `Ctrl + a` | Move cursor to start of line        |
-| `Ctrl + e` | Move cursor to end of line          |
-| `Ctrl + c` | Cancel / kill current command       |
+| Key        | Action                                      |
+|------------|---------------------------------------------|
+| `Ctrl + ←` / `→`   | Move one word left / right          |
+| `Ctrl + a`         | Move cursor to start of line        |
+| `Ctrl + e`         | Move cursor to end of line          |
+| `Ctrl + l`         | Clear the screen                    |
+| `Ctrl + u`         | Delete from cursor to start of line |
+| `Ctrl + k`         | Delete from cursor to end of line   |
+| `Ctrl + w`         | Delete one word backward (to previous space)           |
+| `Alt + Backspace`  | Delete one word backward (to previous separator)           |
+| `Ctrl + c`         | Cancel / kill current command       |
 
 </div>
 
@@ -474,9 +483,6 @@ Try each shortcut in your terminal. Practice until they become muscle memory!
 
 </Cols>
 
-<Callout type="tip">
-<strong>Tab completion</strong> is your best friend — start typing a file or directory name and press <code>Tab</code> to auto-complete it!
-</Callout>
 
 ---
 
