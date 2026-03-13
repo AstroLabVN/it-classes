@@ -559,6 +559,7 @@ This opens the **manual page** for `ls` — a built-in documentation viewer.
 | `Down` or `j` | Scroll one line down               |
 | `/word`       | Search for "word" (case sensitive) |
 | `n`           | Next search result                 |
+| `Shift` + `n` | Previous search result             |
 | `q`           | Quit                               |
 
 </div>
