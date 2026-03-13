@@ -536,13 +536,11 @@ echo "Hello World
 
 # Getting Help — the `man` command
 
-In IT we don't memorize everything — we learn how to **find information**. RTFM!
+In IT we don't memorize everything — we read the documentation and learn how to **find information**. RTFM!
 
 ```bash
-man ls
+man ls   # Open the manual page for the ls command
 ```
-
-This opens the **manual page** for `ls` — a built-in documentation viewer.
 
 <Cols>
 
@@ -551,16 +549,17 @@ This opens the **manual page** for `ls` — a built-in documentation viewer.
 
 <div style="font-size: 0.9rem; line-height: 2px; max-width: 90%">
 
-| Key           | Action                             |
-|---------------|------------------------------------|
-| `f`           | Scroll down one page               |
-| `b`           | Scroll up one page                 |
-| `Up` or `k`   | Scroll one line up                 |
-| `Down` or `j` | Scroll one line down               |
-| `/word`       | Search for "word" (case sensitive) |
-| `n`           | Next search result                 |
-| `Shift` + `n` | Previous search result             |
-| `q`           | Quit                               |
+| Key           | Action                                  |
+|---------------|-----------------------------------------|
+| `f`           | Scroll down one page                    |
+| `b`           | Scroll up one page                      |
+| `Up` or `k`   | Scroll one line up                      |
+| `Down` or `j` | Scroll one line down                    |
+| `/word`       | Search for "word" (case sensitive)      |
+| `/SECTION`    | Search for man section (case sensitive) |
+| `n`           | Next search result                      |
+| `Shift` + `n` | Previous search result                  |
+| `q`           | Quit                                    |
 
 </div>
 
@@ -631,6 +630,49 @@ man echo
 
 <Callout type="tip">
 Look at the <strong>NAME</strong> section at the top of each man page — it gives you a short summary.
+</Callout>
+
+---
+
+# Going further with man
+
+<Cols gap="4rem">
+
+<div>
+
+<Subtitle>Shortcut: man -f</Subtitle>
+
+Remember Exercise 5? There's a faster way!
+
+`man -f` prints the **one-line summary** without opening the full page.
+
+```bash
+man -f ls
+
+ls (1) — list directory contents
+```
+</div>
+<div>
+
+<Subtitle>Search by keyword: man -k</Subtitle>
+
+You know **what** you want to do, but not **which** command?
+
+Search all man page descriptions:
+
+```bash
+man -k directory
+
+ls (1) — list directory contents
+mkdir (1) — make directories
+rmdir (1) — remove empty directories
+```
+</div>
+
+</Cols>
+
+<Callout type="tip" mt="4rem">
+Run <code>man man</code> — the manual has its own manual!
 </Callout>
 
 ---
