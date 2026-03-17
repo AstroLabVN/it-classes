@@ -1,24 +1,4 @@
-exercise 7 : hidden start with a .
-
-
 need to add an exemple in exercise 8 for type return
-
-
-[bgi xps BASH] $ man -k list
-proc_timer_list (5)  - pending timers
-acl (5)              - Access Control Lists
-add-shell (8)        - add shells to the list of valid login shells
-Algorithm::Diff (3pm) - Compute `intelligent' differences between two files / lists
-Algorithm::DiffOld (3pm) - Compute `intelligent' differences between two files / lists but use the old (<=0.59) interface.
-american-english (5) - a list of English words
-appres (1)           - list X application resource database
-apt-listchanges (1)  - Show new changelog entri
-
-run man man !!
-
-[bgi xps it-classes] (main) $ man -f ls
-ls (1)               - list directory contents
-
 
 cli 
   keyboard shortcuts
@@ -55,6 +35,10 @@ LESSONS IDEAS
 ==========================================================================
 simple script
 
+SESSION + improtant var env
+add new path + chmod x = we see a new command ! (with their custom script)
+
+
 source file
 
 ssh
@@ -63,12 +47,6 @@ ssh
 install apt package
 
 
-basic keyboard shortcuts
-  move cursors
-  browser
-  files : create dir, etc
-  windows (set on the side, )
-  ctrl + arrows / ctrl + backspace
 
 
 vars
@@ -98,6 +76,10 @@ markdown
 ==========================================================================
 WORKSHOP IDEAS
 ==========================================================================
-keyboard shortcuts in general
+basic keyboard shortcuts
+  move cursors
+  browser
+  files : create dir, etc
+  windows (set on the side, )
+  ctrl + arrows / ctrl + backspace
 browser : new tab, reopen closed tab, close tab, focus search bar, go to download, etc
-==========================================================================
