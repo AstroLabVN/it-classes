@@ -735,7 +735,7 @@ For each task, use <code>man</code> to find the right option. Write the <strong>
 
 | # | Command  | Task                                                             | Your answer            |
 |---|----------|------------------------------------------------------------------|------------------------|
-| 1 | `ls`     | Show hidden files                                                | `ls ???`               |
+| 1 | `ls`     | Show hidden files (filename starting with `.`  (e.g `.bashrc`)   | `ls ???`               |
 | 2 | `head`   | Display the first **10 lines** of a file                         | `head ??? /etc/passwd` |
 | 3 | `uptime` | Show how long the system has been running in a **pretty** format | `uptime ???`           |
 | 4 | `whoami` | Show the **version** info of whoami                              | `whoami ???`           |
@@ -864,9 +864,33 @@ Use <code>type</code> to check each command. Create a table in your Markdown fil
 
 </div>
 
-<Callout type="tip">
-If <code>type</code> says "builtin" → use <code>help</code>. If it says a file path → use <code>man</code>.
-</Callout>
+<Spacer size="1.5rem" />
+
+<Cols>
+
+<div>
+
+```bash
+type man
+man is /usr/bin/man
+# output is a path → use man
+```
+
+</div>
+
+<div>
+```bash
+type exec
+exec is a shell builtin
+# shell builtin → use help
+```
+</div>
+
+
+</Cols>
+
+
+
 
 ---
 layout: center
