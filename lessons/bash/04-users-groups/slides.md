@@ -453,6 +453,52 @@ These users and groups will be used again in the next lessons on permissions and
 
 ---
 
+# Looking up Users and Groups with `getent`
+
+`getent` asks the system for information from its account databases.
+
+<Callout type="info" mt="1rem">
+Use <code>getent</code> when you want to check whether a <strong>User</strong> or <strong>Group</strong> exists.
+</Callout>
+
+<Spacer />
+
+<Cols>
+
+<div>
+<Subtitle>Examples</Subtitle>
+
+```bash
+getent passwd labuser     # look up a User
+getent group projectred   # look up a Group
+```
+
+</div>
+
+<div>
+<Subtitle>What it does</Subtitle>
+
+<div style="font-size: 0.85em">
+
+- If the name exists, `getent` prints its entry
+- If it does not exist, it prints nothing
+
+</div>
+
+</div>
+
+</Cols>
+
+<Spacer />
+
+<Callout type="tip">
+Use <code>getent</code> to ask the system directly.<br>
+Use <code>grep</code> when you specifically want to read the text inside <code>/etc/passwd</code> or <code>/etc/group</code>.<br>
+Example: <code>grep projectred /etc/group</code>
+</Callout>
+
+---
+
 # Exercise 3 — Fix the command
 
 <Callout type="exercise" mt="1rem">
@@ -512,6 +558,55 @@ sudo adduser devteam
 
 4. Wrong command — `adduser` creates a user, not a group.
    Fix: `sudo addgroup devteam`
+-->
+
+---
+
+# Exercise 4 — Clean up Users & Groups
+
+<Callout type="warning" mt="1rem">
+Requires <code>sudo</code>. Use your practice VM or lab machine only.
+</Callout>
+
+<Callout type="exercise" mt="1rem">
+In this exercise, remove the practice User and Group you created earlier.
+
+Do not guess the commands. Use <code>man</code>, <code>--help</code>, or <code>apropos</code> to find the correct commands and options.
+</Callout>
+
+<Spacer />
+
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,34,34,32">
+
+| # | Task | Your command | How to verify |
+|---|------|--------------|---------------|
+| 1 | Remove the User `labuser` | | `id labuser` should fail |
+| 2 | Confirm that the User is gone | | `getent passwd labuser` should print nothing |
+| 3 | Remove the Group `projectred` | | `getent group projectred` should print nothing |
+| 4 | Explain why the Group should be removed after the User | | Write one sentence |
+
+</Table>
+
+<!--
+Possible answers on Debian-like systems:
+
+1. Remove the User:
+   sudo deluser labuser
+
+2. Confirm the User is gone:
+   getent passwd labuser
+
+3. Remove the Group:
+   sudo delgroup projectred
+
+4. Explanation:
+   Remove the User first so the Group no longer has that member attached.
+
+Notes:
+- Some students may find `userdel` and `groupdel` instead of `deluser` and `delgroup`.
+- Accept either if it works correctly on the system.
+- `id labuser` should fail after the User is removed.
+- `getent passwd labuser` and `getent group projectred` should print nothing after removal.
 -->
 
 ---
