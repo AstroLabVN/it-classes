@@ -1,6 +1,13 @@
-need to add an exemple in exercise 8 for type return
+add some recap commands slide at the end of every lesson
 
-cli 
+refacto tables
+
+add answers in the slides as comments
+
+permissions (advanced)
+  setuid, setgid, sticky bit — add as a future lesson or section in an advanced permissions lesson
+
+cli
   keyboard shortcuts
   move one word with crl
   delete with ctrl + w 
@@ -35,9 +42,14 @@ LESSONS IDEAS
 ==========================================================================
 simple script
 
+file reading
+https://8gwifi.org/tutorials/bash/files-reading.jsp
+
 SESSION + improtant var env
 add new path + chmod x = we see a new command ! (with their custom script)
 
+ioperateurs logique
+https://8gwifi.org/tutorials/bash/operators-logical.jsp
 
 source file
 
@@ -46,7 +58,24 @@ ssh
 
 install apt package
 
+all the terminal tools i use
 
+
+git
+  ● Bash(git diff main...develop --name-only)
+    ⎿  app/Enums/TeacherPaymentItemType.php
+       app/Http/Controllers/Admin/OfficialExamController.php
+       app/Http/Controllers/Admin/TeacherPaymentController.php
+       … +25 lines (ctrl+o to expand)
+
+  ● Bash(git log --oneline develop --not main)
+    ⎿  1b8b7ed feat: add bonus/expense items, fina
+
+
+redirection
+  https://catonmat.net/bash-one-liners-explained-part-three
+  https://8gwifi.org/tutorials/bash/io-redirection.jsp
+  
 
 
 vars
