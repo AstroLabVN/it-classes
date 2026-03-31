@@ -1,5 +1,69 @@
 add some recap commands slide at the end of every lesson
 
+man page 
+The `1` and `5` are **man page section numbers**.
+
+The manual is split into sections, because the same name can exist in different categories.
+
+So:
+
+* `passwd(1)` = the **command**
+* `passwd(5)` = the **file format** for `/etc/passwd`
+
+That is why `man 5 passwd` means:
+
+* open the manual
+* in section **5**
+* for `passwd`
+
+A simple way to explain the sections:
+
+* **1** = user commands
+* **5** = file formats and configuration files
+* **8** = system administration commands
+
+Examples:
+
+```bash
+man 1 passwd
+```
+
+shows the `passwd` command
+
+```bash
+man 5 passwd
+```
+
+shows the `/etc/passwd` file format
+
+```bash
+man 5 group
+```
+
+shows the `/etc/group` file format
+
+```bash
+man 8 useradd
+```
+
+shows the admin command `useradd`
+
+A good beginner explanation is:
+
+> The number tells `man` which kind of thing you want: a command, a file format, or an admin tool.
+
+You could even add this to your lesson as a tiny note:
+
+```bash
+passwd(1)  # the passwd command
+passwd(5)  # the /etc/passwd file format
+```
+
+
+
+
+
+
 refacto tables
 
 add answers in the slides as comments

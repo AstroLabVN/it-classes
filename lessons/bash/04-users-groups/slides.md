@@ -39,7 +39,7 @@ The answer: Linux tracks **who you are** (users) and **what teams you belong to*
 <Spacer />
 
 <Callout type="info">
-This lesson covers <strong>identity</strong> — who you are on the system. The next lessons will cover <strong>permissions</strong> — what you can do with files.
+This lesson covers <strong>identity</strong> — who you are on the system.<br>The next lessons will cover <strong>permissions</strong> — what you can do with files.
 </Callout>
 
 ---
@@ -135,9 +135,9 @@ student sudo
 Example for another user:
 
 ```bash
-groups labuser
+groups joe
 
-labuser : labuser projectred
+joe : joe astrolab-team
 ```
 
 </div>
@@ -147,7 +147,7 @@ labuser : labuser projectred
 <Spacer />
 
 <Callout type="info">
-In <code>id</code> output: <code>gid=</code> is the <strong>primary group</strong> (created with the user). Extra entries in <code>groups=</code> are <strong>supplementary groups</strong> the user was added to.
+In <code>id</code> output: <code>gid=</code> is the <strong>primary group</strong> (created with the user).<br>Extra entries in <code>groups=</code> are <strong>supplementary groups</strong> the user was added to.
 </Callout>
 
 ---
@@ -156,33 +156,31 @@ In <code>id</code> output: <code>gid=</code> is the <strong>primary group</stron
 
 Linux is a **multi-user** system. Users and groups help:
 
-<Cols>
-
-<div>
-
-<div style="font-size: 0.85em">
-
 - **Protect** private files from other users
 - **Share** files safely within a team
 - **Control** who can change system settings
 - **Reduce mistakes** by limiting what each user can do
 
-</div>
+<Spacer />
 
-</div>
+<Cols>
 
 <div>
 <Subtitle>Key files</Subtitle>
 
-<div style="font-size: 0.85em">
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="40,60">
 
-| File | Contains |
-|------|----------|
-| `/etc/passwd` | User accounts |
-| `/etc/group` | Group definitions |
+| File          | Contains                       |
+|---------------|--------------------------------|
+| `/etc/passwd` | User accounts                  |
+| `/etc/group`  | Group definitions              |
 | `/etc/shadow` | Password hashes & account data |
 
+</Table>
+
 </div>
+
+<div>
 
 <Spacer />
 
@@ -205,34 +203,36 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 <Cols>
 
 <div>
-<Subtitle>Create a group</Subtitle>
+<Subtitle>Create a User</Subtitle>
 
 ```bash
-sudo addgroup projectred
+sudo adduser joe
+```
 
-Adding group `projectred' ...
+<div style="font-style: italic; font-size: 0.7em;">
+  You will be asked for a password and optional details.<br>Press <strong>Enter</strong> to skip the optional fields.
+</div>
+
+<Spacer mt="0.9rem" />
+
+<Subtitle>Create a Group</Subtitle>
+
+```bash
+sudo addgroup astrolab-team
+
+Adding group `astrolab-team' ...
 Done.
 ```
-
-<Spacer />
-
-<Subtitle>Create a user</Subtitle>
-
-```bash
-sudo adduser labuser
-```
-
-You will be asked for a password and optional details. Press **Enter** to skip the optional fields.
 
 </div>
 
 <div>
-<Subtitle>Add user to group</Subtitle>
+<Subtitle>Add User to Group</Subtitle>
 
 ```bash
-sudo adduser labuser projectred
+sudo adduser joe astrolab-team
 
-Adding user `labuser' to group `projectred' ...
+Adding user `joe' to group `astrolab-team' ...
 Done.
 ```
 
@@ -241,10 +241,10 @@ Done.
 <Subtitle>Verify</Subtitle>
 
 ```bash
-id labuser
+id joe
 
-uid=1001(labuser) gid=1001(labuser)
-groups=1001(labuser),1002(projectred)
+uid=1001(joe) gid=1001(joe)
+groups=1001(joe),1002(astrolab-team)
 ```
 
 </div>
@@ -303,7 +303,8 @@ uid=0(root) gid=0(root) groups=0(root)
 </Cols>
 
 <Callout type="danger">
-root has <strong>no safety net</strong>. Many dangerous commands run immediately with no confirmation — a typo like <code>rm -rf /</code> as root can destroy the entire system.
+root has <strong>no safety net</strong>. Many dangerous commands run immediately with no confirmation!
+<br>A typo like <code>rm -rf /</code> as root can destroy the entire system! Be careful!
 </Callout>
 
 ---
@@ -366,21 +367,21 @@ As a beginner and in normal admin work, prefer <code>sudo</code> instead of logg
 # Exercise 1 — Identity & Groups
 
 <Callout type="exercise" mt="1rem">
-Run each command and write down the output.
+Run each command and write down the output and what information it shows.
 </Callout>
 
 <Spacer />
 
-<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,40,35,32">
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,35,35,32">
 
-| # | Command                       | What does it show? | Output |
-|---|-------------------------------|--------------------|--------|
-| 1 | `whoami`                      |                    |        |
-| 2 | `id`                          |                    |        |
-| 3 | `groups`                      |                    |        |
-| 4 | `cat /etc/passwd \| tail -3`  |                    |        |
-| 5 | `cat /etc/group \| grep sudo` |                    |        |
-| 6 | `sudo whoami`                 |                    |        |
+| # | Command                       | Output | What information does it show? |
+|---|-------------------------------|--------|--------------------------------|
+| 1 | `whoami`                      |        |                                |
+| 2 | `id`                          |        |                                |
+| 3 | `groups`                      |        |                                |
+| 4 | `cat /etc/passwd \| tail -3`  |        |                                |
+| 5 | `cat /etc/group \| grep sudo` |        |                                |
+| 6 | `sudo whoami`                 |        |                                |
 
 </Table>
 
@@ -426,13 +427,13 @@ Follow the steps below. Run each command yourself and verify the result before m
 
 <Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,30,30,32">
 
-| # | Task                               | Command                           | How to verify                               |
-|---|------------------------------------|-----------------------------------|---------------------------------------------|
-| 1 | Create a group called `projectred` | `sudo addgroup projectred`        | `grep projectred /etc/group`                |
-| 2 | Create a user called `labuser`     | `sudo adduser labuser`            | `id labuser`                                |
-| 3 | Add `labuser` to `projectred`      | `sudo adduser labuser projectred` | `groups labuser`                            |
-| 4 | Confirm group membership           | `id labuser`                      | Should show `projectred` in the groups list |
-| 5 | Check the group file               | `grep projectred /etc/group`      | Should list `labuser` as a member           |
+| # | Task                                  | Command                          | How to verify                                  |
+|---|---------------------------------------|----------------------------------|------------------------------------------------|
+| 1 | Create a group called `astrolab-team` | `sudo addgroup astrolab-team`    | `grep astrolab-team /etc/group`                |
+| 2 | Create a user called `joe`            | `sudo adduser joe`               | `id joe`                                       |
+| 3 | Add `joe` to `astrolab-team`          | `sudo adduser joe astrolab-team` | `groups joe`                                   |
+| 4 | Confirm group membership              | `id joe`                         | Should show `astrolab-team` in the groups list |
+| 5 | Check the group file                  | `grep astrolab-team /etc/group`  | Should list `joe` as a member                  |
 
 </Table>
 
@@ -444,11 +445,11 @@ These users and groups will be used again in the next lessons on permissions and
 
 <!--
 **Expected outputs:**
-1. `Adding group 'projectred' ... Done.`
+1. `Adding group 'astrolab-team' ... Done.`
 2. Interactive prompts for password and details — press Enter to skip optional fields.
-3. `Adding user 'labuser' to group 'projectred' ... Done.`
-4. `uid=1001(labuser) gid=1001(labuser) groups=1001(labuser),1002(projectred)`
-5. `projectred:x:1002:labuser`
+3. `Adding user 'joe' to group 'astrolab-team' ... Done.`
+4. `uid=1001(joe) gid=1001(joe) groups=1001(joe),1002(astrolab-team)`
+5. `astrolab-team:x:1002:joe`
 -->
 
 ---
@@ -469,8 +470,8 @@ Use <code>getent</code> when you want to check whether a <strong>User</strong> o
 <Subtitle>Examples</Subtitle>
 
 ```bash
-getent passwd labuser     # look up a User
-getent group projectred   # look up a Group
+getent passwd joe     # look up a User
+getent group astrolab-team   # look up a Group
 ```
 
 </div>
@@ -494,7 +495,7 @@ getent group projectred   # look up a Group
 <Callout type="tip">
 Use <code>getent</code> to ask the system directly.<br>
 Use <code>grep</code> when you specifically want to read the text inside <code>/etc/passwd</code> or <code>/etc/group</code>.<br>
-Example: <code>grep projectred /etc/group</code>
+Example: <code>grep astrolab-team /etc/group</code>
 </Callout>
 
 ---
@@ -521,7 +522,7 @@ addgroup devteam
 <Subtitle>2 — Add user to group</Subtitle>
 
 ```bash
-sudo adduser devteam labuser
+sudo adduser devteam joe
 ```
 
 </div>
@@ -551,7 +552,7 @@ sudo adduser devteam
    Fix: `sudo addgroup devteam`
 
 2. Wrong argument order — the user comes first, then the group.
-   Fix: `sudo adduser labuser devteam`
+   Fix: `sudo adduser joe devteam`
 
 3. `id` works on users, not groups. To check a group's members, use `grep` or `getent`.
    Fix: `grep devteam /etc/group` or `getent group devteam`
@@ -562,7 +563,70 @@ sudo adduser devteam
 
 ---
 
-# Exercise 4 — Clean up Users & Groups
+# Exercise 4 — Try to delete a User's primary Group
+
+<Callout type="warning" mt="1rem">
+Requires <code>sudo</code>. Use your practice VM or lab machine only.
+</Callout>
+
+<Callout type="exercise" mt="1rem">
+In this exercise, you will create a User whose primary Group is an existing Group.
+Then you will try to delete that Group and observe what the system does.
+
+Use the manual to find the option that sets the primary Group.
+</Callout>
+
+<Spacer />
+
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,34,34,32">
+
+| # | Task | Your command | How to verify |
+|---|------|--------------|---------------|
+| 1 | Create a Group called `owners` | | `getent group owners` |
+| 2 | Create a User called `owner1` with primary Group `owners` | | `id owner1` should show `gid=...(owners)` |
+| 3 | Try to delete the Group `owners` before deleting the User | | Write the error message you see |
+| 4 | Explain what happened | | Write one sentence |
+| 5 | Remove the User `owner1`, then remove the Group `owners` | | `getent passwd owner1` and `getent group owners` should print nothing |
+
+</Table>
+
+<!--
+Possible answers on Debian-like systems:
+
+1. Create the Group:
+   sudo addgroup owners
+
+2. Create the User with primary Group owners:
+   sudo adduser --ingroup owners owner1
+
+   Verify:
+   id owner1
+   Expected: gid=...(owners)
+
+3. Try to delete the Group first:
+   sudo delgroup owners
+   Expected: the system refuses because the Group is the primary Group of an existing User.
+
+4. Explanation:
+   A User's primary Group cannot be removed while that User still exists.
+
+5. Clean up:
+   sudo deluser owner1
+   sudo delgroup owners
+
+Notes:
+- Debian's adduser supports --ingroup to assign an existing group as primary.
+- groupdel / delgroup will not remove the primary group of any existing user.
+-->
+
+<Callout type="tip">
+A shared team Group is usually a <strong>supplementary Group</strong>.<br>
+A User's <strong>primary Group</strong> is more special: the system protects it while the User still exists.
+</Callout>
+
+---
+
+# Exercise 5 — Clean up Users & Groups
 
 <Callout type="warning" mt="1rem">
 Requires <code>sudo</code>. Use your practice VM or lab machine only.
@@ -580,10 +644,10 @@ Do not guess the commands. Use <code>man</code>, <code>--help</code>, or <code>a
 
 | # | Task | Your command | How to verify |
 |---|------|--------------|---------------|
-| 1 | Remove the User `labuser` | | `id labuser` should fail |
-| 2 | Confirm that the User is gone | | `getent passwd labuser` should print nothing |
-| 3 | Remove the Group `projectred` | | `getent group projectred` should print nothing |
-| 4 | Explain why the Group should be removed after the User | | Write one sentence |
+| 1 | Remove the User `joe` | | `id joe` should fail |
+| 2 | Confirm that the User is gone | | `getent passwd joe` should print nothing |
+| 3 | Remove the Group `astrolab-team` | | `getent group astrolab-team` should print nothing |
+| 4 | Explain why removing the User first makes cleanup easier | | Write one sentence |
 
 </Table>
 
@@ -591,22 +655,22 @@ Do not guess the commands. Use <code>man</code>, <code>--help</code>, or <code>a
 Possible answers on Debian-like systems:
 
 1. Remove the User:
-   sudo deluser labuser
+   sudo deluser joe
 
 2. Confirm the User is gone:
-   getent passwd labuser
+   getent passwd joe
 
 3. Remove the Group:
-   sudo delgroup projectred
+   sudo delgroup astrolab-team
 
 4. Explanation:
-   Remove the User first so the Group no longer has that member attached.
+   Removing the User first ensures the Group has no members left, so the Group can be cleanly deleted.
 
 Notes:
 - Some students may find `userdel` and `groupdel` instead of `deluser` and `delgroup`.
 - Accept either if it works correctly on the system.
-- `id labuser` should fail after the User is removed.
-- `getent passwd labuser` and `getent group projectred` should print nothing after removal.
+- `id joe` should fail after the User is removed.
+- `getent passwd joe` and `getent group astrolab-team` should print nothing after removal.
 -->
 
 ---
@@ -636,10 +700,10 @@ When something doesn't work, always check with <code>id &lt;username&gt;</code> 
 <Subtitle>Identity</Subtitle>
 
 ```bash
-whoami             # who am I?
-id                 # full user/group info
-groups             # list my groups
-id labuser         # check another user
+whoami                          # who am I?
+id                              # full user/group info
+groups                          # list my groups
+id joe                          # check another user
 ```
 
 <Spacer />
@@ -647,9 +711,9 @@ id labuser         # check another user
 <Subtitle>Create accounts</Subtitle>
 
 ```bash
-sudo addgroup projectred            # create a group
-sudo adduser labuser                # create a user
-sudo adduser labuser projectred     # add user to group
+sudo addgroup astrolab-team     # create a group
+sudo adduser joe                # create a user
+sudo adduser joe astrolab-team  # add user to group
 ```
 
 <Spacer />
@@ -692,13 +756,13 @@ Ask yourself (or the class):
 
 <Spacer />
 
-> **If a file belongs to group `projectred`, when will `labuser` get group access to that file?**
+> **If a file belongs to group `astrolab-team`, when will `joe` get group access to that file?**
 
 <Spacer size="2rem" />
 
 <!--
 **Expected answer:**
-When `labuser` is a member of `projectred` — and the file's group permissions allow the access (covered in the next lesson).
+When `joe` is a member of `astrolab-team` — and the file's group permissions allow the access (covered in the next lesson).
 -->
 
 <Callout type="tip">
