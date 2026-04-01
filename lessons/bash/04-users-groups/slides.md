@@ -1,7 +1,6 @@
 ---
 theme: light-icons
-colorSchema: dark
-# colorSchema: light
+colorSchema: light
 drawings:
   persist: false
 fonts:
@@ -69,7 +68,7 @@ class: text-center
 
 ---
 
-# What is a User?
+# What is a user?
 
 A **user** is an account on the system. Every command or program runs with a **user identity**.
 
@@ -80,7 +79,7 @@ A **user** is an account on the system. Every command or program runs with a **u
 - **Your account** — the one you log in with
 - **Other people's accounts** — other humans on the system
 - **root** — the administrator
-- **Service accounts** — used by programs (e.g., `www-data`, `nobody`). You do not need to memorize these
+- **Service accounts** — used by programs (e.g., `www-data`, `nobody`)
 
 </div>
 
@@ -104,7 +103,7 @@ uid=1000(student) gid=1000(student) groups=1000(student),27(sudo)
 
 ---
 
-# What is a Group?
+# What is a group?
 
 A **group** is a named collection of users. Groups make **sharing** easier.
 
@@ -152,9 +151,9 @@ In <code>id</code> output: <code>gid=</code> is the <strong>primary group</stron
 
 ---
 
-# Why Users and Groups matter
+# Why users and groups matter
 
-Linux is a **multi-user** system. Users and groups help:
+Linux is a **multi-user** system. users and groups help:
 
 - **Protect** private files from other users
 - **Share** files safely within a team
@@ -172,8 +171,8 @@ Linux is a **multi-user** system. Users and groups help:
 
 | File          | Contains                       |
 |---------------|--------------------------------|
-| `/etc/passwd` | User accounts                  |
-| `/etc/group`  | Group definitions              |
+| `/etc/passwd` | user accounts                  |
+| `/etc/group`  | group definitions              |
 | `/etc/shadow` | Password hashes & account data |
 
 </Table>
@@ -198,12 +197,12 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 
 ---
 
-# Creating Users and Groups
+# Creating users and groups
 
 <Cols>
 
 <div>
-<Subtitle>Create a User</Subtitle>
+<Subtitle>1. Create a user</Subtitle>
 
 ```bash
 sudo adduser joe
@@ -215,19 +214,7 @@ sudo adduser joe
 
 <Spacer mt="0.9rem" />
 
-<Subtitle>Create a Group</Subtitle>
-
-```bash
-sudo addgroup astrolab-team
-
-Adding group `astrolab-team' ...
-Done.
-```
-
-</div>
-
-<div>
-<Subtitle>Add User to Group</Subtitle>
+<Subtitle>3. Add user to group</Subtitle>
 
 ```bash
 sudo adduser joe astrolab-team
@@ -236,9 +223,22 @@ Adding user `joe' to group `astrolab-team' ...
 Done.
 ```
 
+</div>
+
+<div>
+
+<Subtitle>2. Create a group</Subtitle>
+
+```bash
+sudo addgroup astrolab-team
+
+Adding group `astrolab-team' ...
+Done.
+```
+
 <Spacer />
 
-<Subtitle>Verify</Subtitle>
+<Subtitle>4. Verify</Subtitle>
 
 ```bash
 id joe
@@ -252,7 +252,7 @@ groups=1001(joe),1002(astrolab-team)
 </Cols>
 
 <Callout type="info">
-On Debian-like systems, we use <code>adduser</code> and <code>addgroup</code>.<br>You may see <code>useradd</code> and <code>groupadd</code> on other systems — same job, different syntax.
+On Debian/Ubuntu systems, we use <code>adduser</code> and <code>addgroup</code>.<br>You may see <code>useradd</code> and <code>groupadd</code> on other systems — same job, different syntax.
 </Callout>
 
 ---
@@ -280,7 +280,7 @@ class: text-center
 - Create or delete **any** user
 - Change **any** permission or ownership
 - Start or stop **any** service
-- Break the entire system in one command
+- Break the entire system in one command!!
 
 </div>
 
@@ -315,7 +315,6 @@ root has <strong>no safety net</strong>. Many dangerous commands run immediately
 
 ```bash
 sudo apt update          # run apt update as root
-
 sudo ls /root            # list a directory only root can access
 ```
 
@@ -343,8 +342,8 @@ sudo ls /root            # list a directory only root can access
 
 <div style="font-size: 0.85em">
 
-- Users in the **`sudo`** group can use sudo
-- On Debian: your first user is added to `sudo` automatically
+- users in the **`sudo`** group can use sudo
+- On Debian/Ubuntu: your first user is added to `sudo` automatically
 
 </div>
 
@@ -364,7 +363,7 @@ As a beginner and in normal admin work, prefer <code>sudo</code> instead of logg
 
 ---
 
-# Exercise 1 — Identity & Groups
+# Exercise 1 — identity & groups
 
 <Callout type="exercise" mt="1rem">
 Run each command and write down the output and what information it shows.
@@ -414,10 +413,7 @@ Now answer these questions:
 
 ---
 
-# Exercise 2 — Create Users & Groups (Lab)
-<Callout type="warning" mt="1rem">
-Requires <code>sudo</code>. Use your practice VM or lab machine only.
-</Callout>
+# Exercise 2 — Create users & groups (Lab)
 
 <Callout type="exercise" mt="1rem">
 Follow the steps below. Run each command yourself and verify the result before moving on.
@@ -425,7 +421,7 @@ Follow the steps below. Run each command yourself and verify the result before m
 
 <Spacer />
 
-<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,30,30,32">
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,28,30,32">
 
 | # | Task                                  | Command                          | How to verify                                  |
 |---|---------------------------------------|----------------------------------|------------------------------------------------|
@@ -454,12 +450,12 @@ These users and groups will be used again in the next lessons on permissions and
 
 ---
 
-# Looking up Users and Groups with `getent`
+# Looking up users and groups with `getent`
 
 `getent` asks the system for information from its account databases.
 
 <Callout type="info" mt="1rem">
-Use <code>getent</code> when you want to check whether a <strong>User</strong> or <strong>Group</strong> exists.
+Use <code>getent</code> when you want to check whether a <strong>user</strong> or <strong>group</strong> exists.
 </Callout>
 
 <Spacer />
@@ -470,8 +466,8 @@ Use <code>getent</code> when you want to check whether a <strong>User</strong> o
 <Subtitle>Examples</Subtitle>
 
 ```bash
-getent passwd joe     # look up a User
-getent group astrolab-team   # look up a Group
+getent passwd joe            # look up a user
+getent group astrolab-team   # look up a group
 ```
 
 </div>
@@ -519,19 +515,19 @@ addgroup devteam
 
 <Spacer />
 
-<Subtitle>2 — Add user to group</Subtitle>
+<Subtitle>3 — List a group's members</Subtitle>
 
 ```bash
-sudo adduser devteam joe
+id devteam
 ```
 
 </div>
 
 <div>
-<Subtitle>3 — List a group's members</Subtitle>
+<Subtitle>2 — Add user to group</Subtitle>
 
 ```bash
-id devteam
+sudo adduser devteam joe
 ```
 
 <Spacer />
@@ -563,113 +559,105 @@ sudo adduser devteam
 
 ---
 
-# Exercise 4 — Try to delete a User's primary Group
-
-<Callout type="warning" mt="1rem">
-Requires <code>sudo</code>. Use your practice VM or lab machine only.
-</Callout>
+# Exercise 4 — Try to delete a user's primary group
 
 <Callout type="exercise" mt="1rem">
-In this exercise, you will create a User whose primary Group is an existing Group.
-Then you will try to delete that Group and observe what the system does.
-
-Use the manual to find the option that sets the primary Group.
+In this exercise, you will create a user whose primary group is an existing group.<br>
+Then you will try to delete that group and observe what the system does.<br>
+Use the manual to find the option that sets the primary group.
 </Callout>
 
 <Spacer />
 
-<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,34,34,32">
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,45,15,40">
 
-| # | Task | Your command | How to verify |
-|---|------|--------------|---------------|
-| 1 | Create a Group called `owners` | | `getent group owners` |
-| 2 | Create a User called `owner1` with primary Group `owners` | | `id owner1` should show `gid=...(owners)` |
-| 3 | Try to delete the Group `owners` before deleting the User | | Write the error message you see |
-| 4 | Explain what happened | | Write one sentence |
-| 5 | Remove the User `owner1`, then remove the Group `owners` | | `getent passwd owner1` and `getent group owners` should print nothing |
+| # | Task                                                      | Command | How to verify                                                         |
+|---|-----------------------------------------------------------|---------|-----------------------------------------------------------------------|
+| 1 | Create a group called `owners`                            |         | `getent group owners`                                                 |
+| 2 | Create a user called `owner1` with primary group `owners` |         | `id owner1` should show `gid=...(owners)`                             |
+| 3 | Try to delete the group `owners` before deleting the user |         | Write the error message you see                                       |
+| 4 | Explain what happened                                     |         | Write one sentence                                                    |
+| 5 | Remove the user `owner1`, then remove the group `owners`  |         | `getent passwd owner1` and `getent group owners` should print nothing |
 
 </Table>
 
 <!--
-Possible answers on Debian-like systems:
+Possible answers on Debian/Ubuntu systems:
 
-1. Create the Group:
+1. Create the group:
    sudo addgroup owners
 
-2. Create the User with primary Group owners:
+2. Create the user with primary group owners:
    sudo adduser --ingroup owners owner1
 
    Verify:
    id owner1
    Expected: gid=...(owners)
 
-3. Try to delete the Group first:
+3. Try to delete the group first:
    sudo delgroup owners
-   Expected: the system refuses because the Group is the primary Group of an existing User.
+   Expected: the system refuses because the group is the primary group of an existing user.
 
 4. Explanation:
-   A User's primary Group cannot be removed while that User still exists.
+   A user's primary group cannot be removed while that user still exists.
 
 5. Clean up:
    sudo deluser owner1
    sudo delgroup owners
 
 Notes:
-- Debian's adduser supports --ingroup to assign an existing group as primary.
+- Debian/Ubuntu's adduser supports --ingroup to assign an existing group as primary.
 - groupdel / delgroup will not remove the primary group of any existing user.
 -->
 
 <Callout type="tip">
-A shared team Group is usually a <strong>supplementary Group</strong>.<br>
-A User's <strong>primary Group</strong> is more special: the system protects it while the User still exists.
+A shared team group is usually a <strong>supplementary group</strong>.<br>
+A user's <strong>primary group</strong> is more special: the system protects it while the user still exists.
 </Callout>
 
 ---
 
-# Exercise 5 — Clean up Users & Groups
-
-<Callout type="warning" mt="1rem">
-Requires <code>sudo</code>. Use your practice VM or lab machine only.
-</Callout>
+# Exercise 5 — Clean up users & groups
 
 <Callout type="exercise" mt="1rem">
-In this exercise, remove the practice User and Group you created earlier.
-
+In this exercise, remove the practice user and group you created earlier.<br>
 Do not guess the commands. Use <code>man</code>, <code>--help</code>, or <code>apropos</code> to find the correct commands and options.
 </Callout>
 
 <Spacer />
 
-<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,34,34,32">
+<Table maxWidth: 70% fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,45,12,45">
 
-| # | Task | Your command | How to verify |
-|---|------|--------------|---------------|
-| 1 | Remove the User `joe` | | `id joe` should fail |
-| 2 | Confirm that the User is gone | | `getent passwd joe` should print nothing |
-| 3 | Remove the Group `astrolab-team` | | `getent group astrolab-team` should print nothing |
-| 4 | Explain why removing the User first makes cleanup easier | | Write one sentence |
+| # | Task                                                     | Command | How to verify                                     |
+|---|----------------------------------------------------------|---------|---------------------------------------------------|
+| 1 | Remove the user `joe`                                    |         | `id joe` should fail                              |
+| 2 | Confirm that the user is gone                            |         | `getent passwd joe` should print nothing          |
+| 3 | Remove the group `astrolab-team`                         |         | `getent group astrolab-team` should print nothing |
+| 4 | Explain why removing the user first makes cleanup easier |         | Write one sentence                                |
 
 </Table>
 
 <!--
-Possible answers on Debian-like systems:
+Possible answers on Debian/Ubuntu systems:
 
-1. Remove the User:
+1. Remove the user:
    sudo deluser joe
 
-2. Confirm the User is gone:
+2. Confirm the user is gone:
    getent passwd joe
 
-3. Remove the Group:
+3. Remove the group:
    sudo delgroup astrolab-team
 
 4. Explanation:
-   Removing the User first ensures the Group has no members left, so the Group can be cleanly deleted.
+   Removing the user first ensures the group has no members left, so the group can be cleanly deleted.
+   Removing the user first makes cleanup easier because the group can only be safely deleted after no 
+   users still depend on it as their primary or supplementary group.
 
 Notes:
 - Some students may find `userdel` and `groupdel` instead of `deluser` and `delgroup`.
 - Accept either if it works correctly on the system.
-- `id joe` should fail after the User is removed.
+- `id joe` should fail after the user is removed.
 - `getent passwd joe` and `getent group astrolab-team` should print nothing after removal.
 -->
 
@@ -680,10 +668,10 @@ Notes:
 <div style="font-size: 0.85em">
 
 - **Forgetting to add the user to the group** — creating a user and a group is not enough; you must explicitly add the user to the group with `adduser <user> <group>`
-- **Confusing `adduser` with `useradd`** — both exist, but `adduser` is the friendly Debian wrapper; `useradd` has different syntax and fewer defaults
+- **Confusing `adduser` with `useradd`** — both exist, but `adduser` is the friendly Debian/Ubuntu wrapper; `useradd` has different syntax and fewer defaults
 - **Running everything with `sudo` out of habit** — only use `sudo` when the command actually needs root privileges
 - **Forgetting that group changes may require a new login** — if a user is already logged in, they may need to log out and back in for new group membership to take effect
-- **Using User commands on Groups** — `id` and `groups` are for users; use `getent group <name>` or `grep <name> /etc/group` to inspect a group
+- **Using user commands on groups** — `id` and `groups` are for users; use `getent group <name>` or `grep <name> /etc/group` to inspect a group
 
 </div>
 
@@ -721,7 +709,7 @@ sudo adduser joe astrolab-team  # add user to group
 <Subtitle>Root access</Subtitle>
 
 ```bash
-sudo <command>     # one command as root
+sudo <command>                  # one command as root
 ```
 
 ---
@@ -743,7 +731,10 @@ sudo <command>     # one command as root
 <Spacer />
 
 <Callout type="tip">
-If you remember one thing: <strong>users</strong> identify who you are, <strong>groups</strong> identify what teams you belong to, and <strong>sudo</strong> lets you temporarily act as root.
+If you remember one thing:
+<br><strong>users</strong> identify who you are
+<br><strong>groups</strong> identify what teams you belong to
+<br><strong>sudo</strong> lets you temporarily act as root.
 </Callout>
 
 ---
@@ -752,9 +743,7 @@ If you remember one thing: <strong>users</strong> identify who you are, <strong>
 
 <Spacer />
 
-Ask yourself (or the class):
-
-<Spacer />
+Ask yourself:
 
 > **If a file belongs to group `astrolab-team`, when will `joe` get group access to that file?**
 
@@ -766,7 +755,7 @@ When `joe` is a member of `astrolab-team` — and the file's group permissions a
 -->
 
 <Callout type="tip">
-This is the bridge to the next lesson: knowing <strong>who you are</strong> (users & groups) is only half the story. Next, you'll learn <strong>what you can do</strong> (permissions).
+This is the bridge to the next lesson: knowing <strong>who you are</strong> (users & groups) is only half the story.<br>Next, you'll learn <strong>what you can do</strong> (permissions).
 </Callout>
 
 ---
@@ -778,7 +767,7 @@ class: text-center
 
 <Spacer />
 
-You now know who users and groups are and how to manage them!
+You now know what users and groups are and how to manage them!
 
 ---
 layout: center
@@ -796,5 +785,5 @@ Learn how to read and change what each user can do with files and directories.
 <Spacer size="2rem" />
 
 <Callout type="tip">
-Practice in your VM by creating users and groups until it feels natural. Try creating a group, adding two users, and checking with <code>id</code>!
+Practice in your VM by creating users and groups until it feels natural.<br>Try creating a group, adding two users, and checking with <code>id</code>!
 </Callout>
