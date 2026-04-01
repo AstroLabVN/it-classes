@@ -1,26 +1,77 @@
-exercise 7 : hidden start with a .
+add some recap commands slide at the end of every lesson
+
+man page 
+The `1` and `5` are **man page section numbers**.
+
+The manual is split into sections, because the same name can exist in different categories.
+
+So:
+
+* `passwd(1)` = the **command**
+* `passwd(5)` = the **file format** for `/etc/passwd`
+
+That is why `man 5 passwd` means:
+
+* open the manual
+* in section **5**
+* for `passwd`
+
+A simple way to explain the sections:
+
+* **1** = user commands
+* **5** = file formats and configuration files
+* **8** = system administration commands
+
+Examples:
+
+```bash
+man 1 passwd
+```
+
+shows the `passwd` command
+
+```bash
+man 5 passwd
+```
+
+shows the `/etc/passwd` file format
+
+```bash
+man 5 group
+```
+
+shows the `/etc/group` file format
+
+```bash
+man 8 useradd
+```
+
+shows the admin command `useradd`
+
+A good beginner explanation is:
+
+> The number tells `man` which kind of thing you want: a command, a file format, or an admin tool.
+
+You could even add this to your lesson as a tiny note:
+
+```bash
+passwd(1)  # the passwd command
+passwd(5)  # the /etc/passwd file format
+```
 
 
-need to add an exemple in exercise 8 for type return
 
 
-[bgi xps BASH] $ man -k list
-proc_timer_list (5)  - pending timers
-acl (5)              - Access Control Lists
-add-shell (8)        - add shells to the list of valid login shells
-Algorithm::Diff (3pm) - Compute `intelligent' differences between two files / lists
-Algorithm::DiffOld (3pm) - Compute `intelligent' differences between two files / lists but use the old (<=0.59) interface.
-american-english (5) - a list of English words
-appres (1)           - list X application resource database
-apt-listchanges (1)  - Show new changelog entri
-
-run man man !!
-
-[bgi xps it-classes] (main) $ man -f ls
-ls (1)               - list directory contents
 
 
-cli 
+refacto tables
+
+add answers in the slides as comments
+
+permissions (advanced)
+  setuid, setgid, sticky bit — add as a future lesson or section in an advanced permissions lesson
+
+cli
   keyboard shortcuts
   move one word with crl
   delete with ctrl + w 
@@ -55,6 +106,15 @@ LESSONS IDEAS
 ==========================================================================
 simple script
 
+file reading
+https://8gwifi.org/tutorials/bash/files-reading.jsp
+
+SESSION + improtant var env
+add new path + chmod x = we see a new command ! (with their custom script)
+
+ioperateurs logique
+https://8gwifi.org/tutorials/bash/operators-logical.jsp
+
 source file
 
 ssh
@@ -62,13 +122,24 @@ ssh
 
 install apt package
 
+all the terminal tools i use
 
-basic keyboard shortcuts
-  move cursors
-  browser
-  files : create dir, etc
-  windows (set on the side, )
-  ctrl + arrows / ctrl + backspace
+
+git
+  ● Bash(git diff main...develop --name-only)
+    ⎿  app/Enums/TeacherPaymentItemType.php
+       app/Http/Controllers/Admin/OfficialExamController.php
+       app/Http/Controllers/Admin/TeacherPaymentController.php
+       … +25 lines (ctrl+o to expand)
+
+  ● Bash(git log --oneline develop --not main)
+    ⎿  1b8b7ed feat: add bonus/expense items, fina
+
+
+redirection
+  https://catonmat.net/bash-one-liners-explained-part-three
+  https://8gwifi.org/tutorials/bash/io-redirection.jsp
+  
 
 
 vars
@@ -98,6 +169,10 @@ markdown
 ==========================================================================
 WORKSHOP IDEAS
 ==========================================================================
-keyboard shortcuts in general
+basic keyboard shortcuts
+  move cursors
+  browser
+  files : create dir, etc
+  windows (set on the side, )
+  ctrl + arrows / ctrl + backspace
 browser : new tab, reopen closed tab, close tab, focus search bar, go to download, etc
-==========================================================================

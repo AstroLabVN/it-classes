@@ -24,10 +24,10 @@ IT-Classes/
 │       └── <NN>-<slug>/slides.md
 ├── components/                 # Shared Slidev Vue components
 │   ├── Callout.vue             # Callout blocks (info/warning/danger/tip/success/exercise)
+│   ├── Table.vue               # Compact, configurable table wrapper
 │   ├── Title.vue               # Large heading for cover slides
 │   ├── Subtitle.vue            # Bold blue section heading
-│   ├── Spacer.vue              # Vertical spacing
-│   └── Result.vue              # Grey result/output box
+│   └── Spacer.vue              # Vertical spacing
 ├── global-bottom.vue           # AstroLab logo on every slide
 ├── public/logo.png             # Logo asset
 └── snippets/                   # Code snippets for slides
@@ -201,19 +201,39 @@ Adds vertical space between elements.
 <Spacer size="2rem" />
 ```
 
-### `<Result>` — Output display
+### `<Table>` — Compact table wrapper
 
-Grey rounded box for showing command output or results.
+Wraps a Markdown table with configurable sizing and column widths. **Always use this instead of raw `<div>` wrappers or `<style scoped>` for table styling.**
 
 | Prop | Default | Description |
 |------|---------|-------------|
-| `size` | `'0.85em'` | Font size |
+| `fontSize` | `'0.85em'` | Font size |
+| `lineHeight` | `'1.4'` | Line height inside cells |
+| `padding` | `'0.25rem 0.5rem'` | Cell padding |
+| `maxWidth` | `'100%'` | Max width of the table (e.g. `70%`, `600px`) |
+| `cols` | `''` | Column widths as comma-separated percentages (e.g. `"5,30,35,30"`) |
 
 ```html
-<Result>
-drwxr-xr-x  5 user user 4096 Mar  1 10:00 Documents
-</Result>
+<Table fontSize="0.75em" lineHeight="1.4" padding="0.15rem 0.4rem" cols="3,40,35,32">
+
+| # | Command | Description | Output |
+|---|---------|-------------|--------|
+| 1 | `whoami` | | |
+
+</Table>
 ```
+
+### Showing command output
+
+Show command output **inline** in the same fenced code block, separated by a blank line after the command:
+
+```bash
+ls -l /home
+
+drwxr-xr-x  5 student student 4096 Mar  1 10:00 student
+```
+
+This keeps the command and its output together visually. Do **not** use a separate component for output.
 
 ### `<Cols>` — Multi-column layouts
 

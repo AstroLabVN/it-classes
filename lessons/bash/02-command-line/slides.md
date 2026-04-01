@@ -864,7 +864,7 @@ Use <code>type</code> to check each command. Create a table in your Markdown fil
 
 </div>
 
-<Spacer size="1.5rem" />
+<Spacer />
 
 <Cols>
 
