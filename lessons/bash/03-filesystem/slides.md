@@ -615,11 +615,11 @@ Without <code>-p</code>, <code>mkdir parent/child</code> fails if <code>parent/<
 `cp` duplicates files or directories — the original stays untouched.
 
 ```bash
-cp file.txt copy.txt         # copy a file to a **new name**
+cp file.txt copy.txt         # copy a file to a new name
 
-cp file.txt mydir/           # copy a file **into** a directory
+cp file.txt mydir/           # copy a file into a directory
 
-cp -r mydir/ mydir-backup/   # copy an **entire directory** (recursive)
+cp -r mydir/ mydir-backup/   # copy an entire directory (recursive)
 ```
 
 <Spacer />
@@ -697,10 +697,9 @@ Write the command to create the following directory structure in <code>one comma
 
 ```bash
 ~/my-project-2/
-my-project-2/
-└── folder1
-    └── folder2
-        └── folder3
+├── folder1/
+    └── folder2/
+        └── folder3/
 ```
 
 ---
@@ -752,28 +751,32 @@ cp -r file.txt file-copy.txt
 
 <Spacer />
 
-<Subtitle>2 — Create a directory called "my project"</Subtitle>
 
-```bash
-mkdir my project
-```
-
-</div>
-
-<div>
 <Subtitle>3 — Delete a directory with files inside</Subtitle>
 
 ```bash
 rmdir mydir/
 ```
 
-<Spacer />
+</div>
 
-<Subtitle>4 — Go to /home/student/Documents</Subtitle>
+<div>
+
+
+<Subtitle>2 — Go to /home/student/Documents</Subtitle>
 
 ```bash
 cd documents
 ```
+
+<Spacer />
+
+<Subtitle>4 — Create a directory called "my project"</Subtitle>
+
+```bash
+mkdir my project
+```
+
 
 </div>
 
@@ -916,19 +919,21 @@ cat /etc/doesnotexist.txt
 
 <Spacer />
 
-<Subtitle>2 — Show the first 5 lines</Subtitle>
+
+<Subtitle>3 — Create a file in /etc</Subtitle>
 
 ```bash
-head 5 /etc/passwd
+touch /etc/myfile.txt
 ```
 
 </div>
 
 <div>
-<Subtitle>3 — Create a file in /etc</Subtitle>
+
+<Subtitle>2 — Show the first 5 lines</Subtitle>
 
 ```bash
-touch /etc/myfile.txt
+head 5 /etc/passwd
 ```
 
 <Spacer />
