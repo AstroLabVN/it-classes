@@ -17,7 +17,7 @@ Understanding where things live and how to navigate
 
 ---
 
-# The Linux Filesystem
+# The Linux filesystem
 
 In Linux, everything starts from a single **root directory**: `/`
 
@@ -90,7 +90,7 @@ You don't need to memorize all of these. Run <code>ls -l /</code> to see them on
 
 ---
 
-# Key Directories
+# Key directories
 
 <Cols>
 
@@ -129,7 +129,7 @@ You can <strong>read</strong> most system directories, but you need <strong>root
 
 ---
 
-# Absolute vs Relative Paths
+# Absolute vs relative paths
 
 There are two ways to refer to a file or directory:
 
@@ -194,7 +194,7 @@ Use <strong>Alt + Backspace</strong> to delete one path segment at a time — mu
 
 ---
 
-# Path Symbols
+# Path symbols
 
 <div style="font-size:0.7em; max-width:50%; line-height: 2px">
 
@@ -241,7 +241,7 @@ cd ~             # go to /home/student
 
 ---
 
-# Listing Files — `ls`
+# Listing files — `ls`
 
 <Cols gap="50px">
 
@@ -302,12 +302,6 @@ cd
 pwd
 ```
 
-<Subtitle size="sm">2</Subtitle>
-
-```bash
-cd /tmp
-pwd
-```
 
 <Subtitle size="sm">3</Subtitle>
 
@@ -316,16 +310,6 @@ cd ~
 pwd
 ```
 
-<Subtitle size="sm">4</Subtitle>
-
-```bash
-cd ..
-pwd
-```
-
-</div>
-
-<div>
 
 <Subtitle size="sm">5</Subtitle>
 
@@ -334,17 +318,39 @@ cd -
 pwd
 ```
 
-<Subtitle size="sm">6</Subtitle>
-
-```bash
-cd /
-pwd
-```
 
 <Subtitle size="sm">7</Subtitle>
 
 ```bash
 cd /etc
+pwd
+```
+
+</div>
+
+<div>
+
+
+<Subtitle size="sm">2</Subtitle>
+
+```bash
+cd /tmp
+pwd
+```
+
+
+<Subtitle size="sm">4</Subtitle>
+
+```bash
+cd ..
+pwd
+```
+
+
+<Subtitle size="sm">6</Subtitle>
+
+```bash
+cd /
 pwd
 ```
 
@@ -449,7 +455,7 @@ drwxr-xr-x 3 root root 4096 Jan  1 10:00 /home   # The first character is `d` �
 
 <Spacer />
 
-<Subtitle>Why `ls -ld`?</Subtitle>
+<Subtitle>Why <code>ls -ld</code>?</Subtitle>
 
 <Cols>
 
@@ -482,7 +488,7 @@ Without <code>-d</code>, <code>ls</code> looks <strong>inside</strong> the direc
 
 ---
 
-# Symbolic Links (`l`)
+# Symbolic links (`l`)
 
 A symbolic link (symlink) is a **shortcut** — a file that points to another file or directory.
 
@@ -570,7 +576,7 @@ class: text-center
 
 ---
 
-# Creating Files — `touch`
+# Creating files — `touch`
 
 `touch` creates an **empty file** (or updates its timestamp if it already exists).
 
@@ -590,7 +596,7 @@ touch .hidden-file          # creates a hidden file
 
 ---
 
-# Creating Directories — `mkdir`
+# Creating directories — `mkdir`
 
 `mkdir` creates **new directories** (folders).
 
@@ -630,7 +636,7 @@ To copy a directory, you <strong>must</strong> use <code>-r</code> (recursive). 
 
 ---
 
-# Moving & Renaming — `mv`
+# Moving & renaming — `mv`
 
 `mv` does two things: **move** files and **rename** them.
 
@@ -791,7 +797,7 @@ class: text-center
 
 ---
 
-# Viewing File Content — `cat`
+# Viewing file content — `cat`
 
 `cat` prints the **entire content** of a file.
 
@@ -813,7 +819,7 @@ cat -n /etc/passwd   # display with line numbers
 
 ---
 
-# Scrolling Through Files — `less`
+# Scrolling through files — `less`
 
 `less` lets you **scroll** through a file interactively.
 
@@ -845,7 +851,7 @@ These are the <strong>same shortcuts</strong> as <code>man</code> pages — beca
 
 ---
 
-# First & Last Lines — `head` and `tail`
+# First & last Lines — `head` and `tail`
 
 `head` shows the **beginning** of a file, `tail` shows the **end**.
 
@@ -896,7 +902,7 @@ For #6, check <code>man wc</code> — you learned this command in the previous l
 
 ---
 
-# Exercise 7 — Find the Error
+# Exercise 7 — Find the error
 
 <Callout type="exercise" mt="1rem">
 Each command below contains an <strong>error</strong>. For each one:
